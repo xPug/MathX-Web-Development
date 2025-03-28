@@ -1,7 +1,5 @@
 # Web-Development (Beta)
 Ongoing stealth website and game development project. 🌐
-
-![image](https://github.com/user-attachments/assets/33df17c3-a742-4d3e-a100-9c8328315c44)
 -------------------------------------
 
 # Project Description: MathX
