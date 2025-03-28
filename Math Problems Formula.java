@@ -1,4 +1,6 @@
-# Java Implementation
+// ```java
+
+//Java Implementation
 
 public class MathFormulas {
 
