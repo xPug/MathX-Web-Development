@@ -4,6 +4,8 @@
 
                                           Ongoing stealth website and game development project. 🌐
 
+-------------------------------------
+
 ![image](https://github.com/user-attachments/assets/ef80bd27-3ba1-4b9a-aa34-dd68e5620fe9)
 
 -------------------------------------
