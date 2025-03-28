@@ -10,7 +10,8 @@
 
 # Project Description: MathX
 
-Overview:
+**Overview:**
+
 MathX is an interactive daily mathematics problem-solving game designed to engage users of all skill levels, from K-12 students to college and graduate-level learners, as well as those interested in coding practice. Inspired by the popular Wordle game, MathX presents a new math challenge every day, requiring players to solve problems across various topics and difficulty levels.
 
 **Key Features:**
