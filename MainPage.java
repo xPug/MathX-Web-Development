@@ -1,29 +1,21 @@
-// ``` java 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-// Java implementation
-// Backend functions for Main Page for website
+public class MainPage extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button("Click me!");
+        btn.setOnAction(e -> System.out.println("Hello, JavaFX!"));
+        
+        Scene scene = new Scene(btn, 300, 200);
+        primaryStage.setTitle("JavaFX Application");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
-public class MainPage {
-  // dimensions for website; will change later to customize sizes
-  public static final int WINDOW_WIDTH = 1920;
-  public static final int WINDOW_HEIGHT = 1080;
-  
-  
-  public MainPage() {
-    super();
-  }
-
-  public void init() {
-    setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-  }
-
-  // initialize windows and graphics here
-  public void run() {
-    System.out.println("Website Running");
-
-  }
-
-  public static void main(String[] args) {
-    new MainPage().start();
-  }
-} 
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
