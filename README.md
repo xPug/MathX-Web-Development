@@ -1,5 +1,8 @@
-# Web-Development (Beta)
-Ongoing stealth website and game development project. 🌐
+<h1 align="center">
+  Web-Development (Beta)
+</h1>
+
+                                          Ongoing stealth website and game development project. 🌐
 
 ![image](https://github.com/user-attachments/assets/ef80bd27-3ba1-4b9a-aa34-dd68e5620fe9)
 
