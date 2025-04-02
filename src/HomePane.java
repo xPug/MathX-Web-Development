@@ -22,9 +22,9 @@ public class HomePane extends GraphicPane {
 	}
 	
 	private void addLogo() {
-		GImage logoImage = new GImage("MathXlogo.png", 100, 100);
-		logoImage.scale(1, 1);
-		logoImage.setLocation((mainScreen.getWidth() - logoImage.getWidth()) / 2, (mainScreen.getHeight() - logoImage.getHeight()) / 2);
+		GImage logoImage = new GImage("media/MathXlogo.png", 100, 100);
+		logoImage.scale(0.5, 0.5);
+		logoImage.setLocation((mainScreen.getWidth() - logoImage.getWidth()) / 2, (mainScreen.getHeight() - logoImage.getHeight()) / 5);
 		
 		contents.add(logoImage);
 		mainScreen.add(logoImage);

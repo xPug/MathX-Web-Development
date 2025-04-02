@@ -19,7 +19,27 @@ public class MainApplication extends GraphicsProgram {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
 	
+	public void run() {
+		System.out.println("Running");
+		
+		homePane = new HomePane(this);
+		
+		switchToScreen(homePane);
+	}
+	
 	public static void main(String[] args) {
 		new MainApplication().start();
+	}
+	
+	public void switchToHomePane() {
+		switchToScreen(homePane);
+	}
+	
+	protected void switchToScreen(GraphicPane newScreen) {
+		if(currentScreen != null) {
+			currentScreen.hideContent();
+		}
+		newScreen.showContent();
+		currentScreen = newScreen;
 	}
 }
