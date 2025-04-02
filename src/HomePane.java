@@ -8,6 +8,7 @@ public class HomePane extends GraphicPane {
 		this.mainScreen = mainScreen;
 	}
 	
+	// Uses from GraphicPane to add and remove items
 	@Override
 	public void showContent() {
 		addLogo();
@@ -21,6 +22,7 @@ public class HomePane extends GraphicPane {
 		contents.clear();
 	}
 	
+	// Logo for Game
 	private void addLogo() {
 		GImage logoImage = new GImage("media/MathXlogo.png", 100, 100);
 		logoImage.scale(0.5, 0.5);

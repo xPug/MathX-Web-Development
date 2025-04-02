@@ -4,10 +4,11 @@ import acm.program.*;
 import java.awt.event.MouseEvent;
 
 public class MainApplication extends GraphicsProgram {
-	
+	// Optimized to most popular
 	private static final int WINDOW_HEIGHT = 1080;
 	private static final int WINDOW_WIDTH = 1920;
     
+	// All screen panes go here
 	private GraphicPane currentScreen;
 	private HomePane homePane;
 	
@@ -22,6 +23,7 @@ public class MainApplication extends GraphicsProgram {
 	public void run() {
 		System.out.println("Running");
 		
+		// Initializes Panes
 		homePane = new HomePane(this);
 		
 		switchToScreen(homePane);
