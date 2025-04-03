@@ -44,4 +44,39 @@ public class MainApplication extends GraphicsProgram {
 		newScreen.showContent();
 		currentScreen = newScreen;
 	}
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		if(currentScreen != null) {
+			currentScreen.mousePressed(e);
+		}
+	}
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if(currentScreen != null) {
+			currentScreen.mouseReleased(e);
+		}
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(currentScreen != null) {
+			currentScreen.mouseClicked(e);
+		}
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		if(currentScreen != null) {
+			currentScreen.mouseDragged(e);
+		}
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		if(currentScreen != null) {
+			currentScreen.mouseMoved(e);
+		}
+	}
 }

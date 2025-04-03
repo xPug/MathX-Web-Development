@@ -14,7 +14,13 @@ public class GraphicPane {
 	
 	public void hideContent() {}
 	
-	public void mousePressed() {}
-	
-	public void mouseReleased() {}
+	public void mousePressed(MouseEvent e) {}
+
+	public void mouseReleased(MouseEvent e) {}
+
+	public void mouseClicked(MouseEvent e) {}
+
+	public void mouseDragged(MouseEvent e) {}
+
+	public void mouseMoved(MouseEvent e) {}
 }

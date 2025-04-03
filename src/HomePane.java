@@ -16,6 +16,7 @@ public class HomePane extends GraphicPane {
 		addPlayButton();
 	}
 	
+	// Hides all content
 	@Override
 	public void hideContent() {
 		for(GObject item : contents) {
@@ -34,12 +35,16 @@ public class HomePane extends GraphicPane {
 		mainScreen.add(logoImage);
 	}
 	
+	// Play Button
 	private void addPlayButton() {
-		GImage playButton = new GImage("media/playbutton.png", 100, 200);
+		GImage playButton = new GImage("media/playbutton.png", 100, 200); // change button image later
 		playButton.scale(0.5, 0.5);
 		playButton.setLocation((mainScreen.getWidth() - playButton.getWidth()) / 2, (mainScreen.getHeight() - playButton.getHeight()));
 		
 		contents.add(playButton);
 		mainScreen.add(playButton);
 	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {}
 }
