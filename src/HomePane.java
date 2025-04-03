@@ -14,6 +14,7 @@ public class HomePane extends GraphicPane {
 	public void showContent() {
 		addLogo();
 		addPlayButton();
+		addHelpButton();
 	}
 	
 	// Hides all content
@@ -43,6 +44,15 @@ public class HomePane extends GraphicPane {
 		
 		contents.add(playButton);
 		mainScreen.add(playButton);
+	}
+	
+	private void addHelpButton() {
+		GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change button image later
+		helpButton.scale(0.5, 0.40);
+		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
+		
+		contents.add(helpButton);
+		mainScreen.add(helpButton);
 	}
 	
 	@Override
