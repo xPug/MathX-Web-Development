@@ -46,8 +46,9 @@ public class HomePane extends GraphicPane {
 		mainScreen.add(playButton);
 	}
 	
+	// Help Button
 	private void addHelpButton() {
-		GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change button image later
+		GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
 		helpButton.scale(0.5, 0.40);
 		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
 		
