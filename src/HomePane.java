@@ -1,5 +1,6 @@
 import java.awt.event.MouseEvent;
 
+import acm.graphics.*;
 import acm.graphics.GImage;
 import acm.graphics.GObject;
 
@@ -12,6 +13,7 @@ public class HomePane extends GraphicPane {
 	@Override
 	public void showContent() {
 		addLogo();
+		addPlayButton();
 	}
 	
 	@Override
@@ -30,5 +32,14 @@ public class HomePane extends GraphicPane {
 		
 		contents.add(logoImage);
 		mainScreen.add(logoImage);
+	}
+	
+	private void addPlayButton() {
+		GImage playButton = new GImage("media/playbutton.png", 100, 200);
+		playButton.scale(0.5, 0.5);
+		playButton.setLocation((mainScreen.getWidth() - playButton.getWidth()) / 2, (mainScreen.getHeight() - playButton.getHeight()));
+		
+		contents.add(playButton);
+		mainScreen.add(playButton);
 	}
 }
