@@ -10,6 +10,7 @@ public class MainApplication extends GraphicsProgram {
     
 	// All screen panes go here
 	private GraphicPane currentScreen;
+	private HelpPane helpPane;
 	private HomePane homePane;
 	
 	public MainApplication() {
@@ -33,6 +34,10 @@ public class MainApplication extends GraphicsProgram {
 		new MainApplication().start();
 	}
 	
+	public void switchToHelpPane() {
+		switchToScreen(helpPane);
+	}
+	
 	public void switchToHomePane() {
 		switchToScreen(homePane);
 	}
@@ -43,6 +48,10 @@ public class MainApplication extends GraphicsProgram {
 		}
 		newScreen.showContent();
 		currentScreen = newScreen;
+	}
+	
+	public GObject getElementAtLocation(double x, double y) {
+		return getElementAt(x, y);
 	}
 	
 	@Override

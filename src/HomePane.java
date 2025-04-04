@@ -13,9 +13,9 @@ public class HomePane extends GraphicPane {
 	@Override
 	public void showContent() {
 		addBlackBackground();
-		addLogo();
-		addPlayButton();
 		addHelpButton();
+		addPlayButton();
+		addLogo();
 	}
 	
 	// Hides all content
@@ -46,7 +46,16 @@ public class HomePane extends GraphicPane {
 		contents.add(logoImage);
 		mainScreen.add(logoImage);
 	}
-	
+	// Help Button
+		private void addHelpButton() {
+			GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
+			helpButton.scale(0.5, 0.40);
+			helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
+			
+			contents.add(helpButton);
+			mainScreen.add(helpButton);
+		}
+		
 	// Play Button
 	private void addPlayButton() {
 		GImage playButton = new GImage("media/playbutton.png", 100, 200); // change button image later
@@ -57,16 +66,11 @@ public class HomePane extends GraphicPane {
 		mainScreen.add(playButton);
 	}
 	
-	// Help Button
-	private void addHelpButton() {
-		GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
-		helpButton.scale(0.5, 0.40);
-		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
-		
-		contents.add(helpButton);
-		mainScreen.add(helpButton);
-	}
-	
+
 	@Override
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+		if (mainScreen.getElementAtLocation(e.getX(), e.getY()) == contents.get(2)) {
+			mainScreen.switchToHelpPane();
+		}
+	}
 }
