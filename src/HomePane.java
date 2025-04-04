@@ -12,6 +12,7 @@ public class HomePane extends GraphicPane {
 	// Uses from GraphicPane to add and remove items
 	@Override
 	public void showContent() {
+		addBlackBackground();
 		addLogo();
 		addPlayButton();
 		addHelpButton();
@@ -25,6 +26,16 @@ public class HomePane extends GraphicPane {
 		}
 		contents.clear();
 	}
+	
+	private void addBlackBackground() {
+	    GRect background = new GRect(mainScreen.getWidth(), mainScreen.getHeight());
+	    background.setFilled(true);
+	    background.setColor(java.awt.Color.BLACK);
+	    
+	    contents.add(background);
+	    mainScreen.add(background); // Add background first so it's in the back
+	}
+	
 	
 	// Logo for Game
 	private void addLogo() {
