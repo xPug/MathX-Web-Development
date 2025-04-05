@@ -17,15 +17,21 @@ public class MainApplication extends GraphicsProgram {
 		super();
 	}
 	
+	protected void setupInteractions() {
+		requestFocus();
+		addMouseListeners();
+	}
+	
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
 	
 	public void run() {
 		System.out.println("Running");
-		
+		setupInteractions();
 		// Initializes Panes
 		homePane = new HomePane(this);
+		helpPane = new HelpPane(this);
 		
 		switchToScreen(homePane);
 	}
