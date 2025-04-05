@@ -11,6 +11,7 @@ public class HelpPane extends GraphicPane {
 	
 	@Override
 	public void showContent() {
+		backButton();
 		disPlay();
 	}
 	
@@ -23,5 +24,14 @@ public class HelpPane extends GraphicPane {
 	}
 	
 	public void disPlay() {}
+	
+	public void backButton() {
+		GImage backButton = new GImage("media/BackButton.png");
+		backButton.scale(0.5, 0.5);
+		backButton.setLocation(10, 10);
+		
+		contents.add(backButton);
+		mainScreen.add(backButton);
+	}
 	
 }
