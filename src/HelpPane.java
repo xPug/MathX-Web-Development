@@ -6,6 +6,7 @@ import acm.graphics.*;
 public class HelpPane extends GraphicPane {
 	GImage backButton;
 	GRect backGround;
+	GLabel rulesText;
 
 	public HelpPane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -15,6 +16,7 @@ public class HelpPane extends GraphicPane {
 	public void showContent() {
 		backGround();
 		backButton();
+		rulesContent();
 	}
 	
 	@Override
@@ -37,12 +39,22 @@ public class HelpPane extends GraphicPane {
 	
 	
 	public void backButton() {
-		GImage backButton = new GImage("media/BackButton.png");
+		backButton = new GImage("media/BackButton.png");
 		backButton.scale(0.5, 0.5);
 		backButton.setLocation(10, 10);
 		
 		contents.add(backButton);
 		mainScreen.add(backButton);
+	}
+	
+	public void rulesContent() {
+		rulesText = new GLabel("The Rules go here!");
+		rulesText.setFont("Arial-60");
+		rulesText.setColor(Color.white);
+		rulesText.setLocation((mainScreen.getWidth() - rulesText.getWidth()) / 2, mainScreen.getHeight() / 2);
+		
+		contents.add(rulesText);
+		mainScreen.add(rulesText);
 	}
 	
 	@Override
