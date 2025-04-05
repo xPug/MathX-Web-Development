@@ -34,4 +34,10 @@ public class HelpPane extends GraphicPane {
 		mainScreen.add(backButton);
 	}
 	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (mainScreen.getElementAtLocation(e.getX(), e.getY()) == contents.get(0)) {
+			mainScreen.switchToHomePane();
+		}
+	}
 }

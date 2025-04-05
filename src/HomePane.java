@@ -5,6 +5,12 @@ import acm.graphics.GImage;
 import acm.graphics.GObject;
 
 public class HomePane extends GraphicPane {
+	
+	private GRect backGround;
+	private GImage logoImage;
+	private GImage helpButton;
+	private GImage playButton;
+	
 	public HomePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
 	}
@@ -28,18 +34,18 @@ public class HomePane extends GraphicPane {
 	}
 	
 	private void addBlackBackground() {
-	    GRect background = new GRect(mainScreen.getWidth(), mainScreen.getHeight());
-	    background.setFilled(true);
-	    background.setColor(java.awt.Color.BLACK);
+	    backGround = new GRect(mainScreen.getWidth(), mainScreen.getHeight());
+	    backGround.setFilled(true);
+	    backGround.setColor(java.awt.Color.BLACK);
 	    
-	    contents.add(background);
-	    mainScreen.add(background); // Add background first so it's in the back
+	    contents.add(backGround);
+	    mainScreen.add(backGround); // Add background first so it's in the back
 	}
 	
 	
 	// Logo for Game
 	private void addLogo() {
-		GImage logoImage = new GImage("media/MathXlogo.png", 100, 100);
+		logoImage = new GImage("media/MathXlogo.png", 100, 100);
 		logoImage.scale(0.5, 0.5);
 		logoImage.setLocation((mainScreen.getWidth() - logoImage.getWidth()) / 2, (mainScreen.getHeight() - logoImage.getHeight()) / 5);
 		
@@ -47,18 +53,18 @@ public class HomePane extends GraphicPane {
 		mainScreen.add(logoImage);
 	}
 	// Help Button
-		private void addHelpButton() {
-			GImage helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
-			helpButton.scale(0.5, 0.40);
-			helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
+	private void addHelpButton() {
+		helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
+		helpButton.scale(0.5, 0.40);
+		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()));
 			
-			contents.add(helpButton);
-			mainScreen.add(helpButton);
-		}
+		contents.add(helpButton);
+		mainScreen.add(helpButton);
+	}
 		
 	// Play Button
 	private void addPlayButton() {
-		GImage playButton = new GImage("media/playbutton.png", 100, 200); // change button image later
+		playButton = new GImage("media/playbutton.png", 100, 200); // change button image later
 		playButton.scale(0.5, 0.5);
 		playButton.setLocation((mainScreen.getWidth() - playButton.getWidth()) / 2, (mainScreen.getHeight() - playButton.getHeight()));
 		
@@ -69,7 +75,8 @@ public class HomePane extends GraphicPane {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (mainScreen.getElementAtLocation(e.getX(), e.getY()) == contents.get(2)) {
+		GObject clicked = mainScreen.getElementAtLocation(e.getX(), e.getY());
+		if (clicked == helpButton) {
 			mainScreen.switchToHelpPane();
 		}
 	}
