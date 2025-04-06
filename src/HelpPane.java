@@ -7,6 +7,7 @@ public class HelpPane extends GraphicPane {
 	GImage backButton;
 	GRect backGround;
 	GLabel rulesText;
+	private SoundPlayer backButtonSound = new SoundPlayer();
 
 	public HelpPane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -61,6 +62,7 @@ public class HelpPane extends GraphicPane {
 	public void mouseClicked(MouseEvent e) {
 		if (mainScreen.getElementAtLocation(e.getX(), e.getY()) == contents.get(1)) {
 			mainScreen.switchToHomePane();
+			backButtonSound.playSoundOnce("media/ButtonClick.wav");
 		}
 	}
 }

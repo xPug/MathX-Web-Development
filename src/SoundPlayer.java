@@ -19,7 +19,7 @@ public class SoundPlayer {
         }
     }
     
-    public void playEndSound(String filePath) {
+    public void playSoundOnce(String filePath) {
     	try {
             File soundFile = new File(filePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
