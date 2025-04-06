@@ -10,9 +10,10 @@ public class HomePane extends GraphicPane {
 	private GImage logoImage;
 	private GImage helpButton;
 	private GImage playButton;
+	private SoundPlayer soundPlayer = new SoundPlayer();
 	
 	public HomePane(MainApplication mainScreen) {
-		this.mainScreen = mainScreen;
+		this.mainScreen = mainScreen; 
 	}
 	
 	// Uses from GraphicPane to add and remove items
@@ -78,6 +79,7 @@ public class HomePane extends GraphicPane {
 		GObject clicked = mainScreen.getElementAtLocation(e.getX(), e.getY());
 		if (clicked == helpButton) {
 			mainScreen.switchToHelpPane();
+			soundPlayer.playSound("media/.wav");
 		}
 	}
 }
