@@ -10,7 +10,7 @@ public class HomePane extends GraphicPane {
 	private GImage logoImage;
 	private GImage helpButton;
 	private GImage playButton;
-	private SoundPlayer helpButtonSound = new SoundPlayer();
+	private SoundPlayer ButtonSound = new SoundPlayer();
 	
 	public HomePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen; 
@@ -79,7 +79,11 @@ public class HomePane extends GraphicPane {
 		GObject clicked = mainScreen.getElementAtLocation(e.getX(), e.getY());
 		if (clicked == helpButton) {
 			mainScreen.switchToHelpPane();
-			helpButtonSound.playSoundOnce("media/ButtonClick.wav");
+			ButtonSound.playSoundOnce("media/ButtonClick.wav");
+		}
+		else if (clicked == playButton) {
+			mainScreen.switchToGamePane();
+			ButtonSound.playSoundOnce("media/ButtonClick.wav");
 		}
 	}
 }
