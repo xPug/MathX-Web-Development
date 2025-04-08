@@ -12,6 +12,7 @@ public class MainApplication extends GraphicsProgram {
 	private GraphicPane currentScreen;
 	private HelpPane helpPane;
 	private HomePane homePane;
+	private GamePane gamePane;
 	
 	public MainApplication() {
 		super();
@@ -32,6 +33,7 @@ public class MainApplication extends GraphicsProgram {
 		// Initializes Panes
 		homePane = new HomePane(this);
 		helpPane = new HelpPane(this);
+		gamePane = new GamePane(this);
 		
 		switchToScreen(homePane);
 	}
@@ -40,12 +42,19 @@ public class MainApplication extends GraphicsProgram {
 		new MainApplication().start();
 	}
 	
+	// Rules Screen
 	public void switchToHelpPane() {
 		switchToScreen(helpPane);
 	}
 	
+	// Default Screen or Home Screen
 	public void switchToHomePane() {
 		switchToScreen(homePane);
+	}
+	
+	// Game Screen
+	public void switchToGamePane() {
+		switchToScreen(gamePane);
 	}
 	
 	protected void switchToScreen(GraphicPane newScreen) {
