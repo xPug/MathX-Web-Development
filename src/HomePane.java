@@ -55,9 +55,9 @@ public class HomePane extends GraphicPane {
 	}
 	// Help Button
 	private void addHelpButton() {
-		helpButton = new GImage("media/HelpButton.png", 100, 200); // change help image later
-		helpButton.scale(0.5, 0.40);
-		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()) - 100);
+		helpButton = new GImage("media/helpButton.png", 200, 400); // change help image later
+		helpButton.scale(0.65, 0.6);
+		helpButton.setLocation((mainScreen.getWidth() - helpButton.getWidth()) / 2, (mainScreen.getHeight() - helpButton.getHeight()) - 150);
 			
 		contents.add(helpButton);
 		mainScreen.add(helpButton);
@@ -65,8 +65,8 @@ public class HomePane extends GraphicPane {
 		
 	// Play Button
 	private void addPlayButton() {
-		playButton = new GImage("media/playButton.png", 100, 200); // change button image later
-		playButton.scale(0.65, 0.65);
+		playButton = new GImage("media/playButton.png", 200, 400); // change button image later
+		playButton.scale(0.65, 0.6);
 		playButton.setLocation((mainScreen.getWidth() - playButton.getWidth()) / 2, (mainScreen.getHeight() - playButton.getHeight()) - 300);
 		
 		contents.add(playButton);
