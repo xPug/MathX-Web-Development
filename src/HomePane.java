@@ -65,8 +65,8 @@ public class HomePane extends GraphicPane {
 		
 	// Play Button
 	private void addPlayButton() {
-		playButton = new GImage("media/playbutton.png", 100, 200); // change button image later
-		playButton.scale(0.5, 0.5);
+		playButton = new GImage("media/playButton.png", 100, 200); // change button image later
+		playButton.scale(0.65, 0.65);
 		playButton.setLocation((mainScreen.getWidth() - playButton.getWidth()) / 2, (mainScreen.getHeight() - playButton.getHeight()) - 300);
 		
 		contents.add(playButton);
