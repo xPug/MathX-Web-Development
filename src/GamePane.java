@@ -5,6 +5,7 @@ import acm.graphics.*;
 
 public class GamePane extends GraphicPane {
 	private GRect backGround;
+	private GLine gameDivider;
 	
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -13,6 +14,7 @@ public class GamePane extends GraphicPane {
 	@Override
 	public void showContent() {
 		backGround();
+		gameLine();
 	}
 	
 	@Override
@@ -30,5 +32,13 @@ public class GamePane extends GraphicPane {
 	    
 	    contents.add(backGround);
 	    mainScreen.add(backGround);
+	}
+	
+	public void gameLine() {
+		gameDivider = new GLine(mainScreen.getWidth() / 2, 0, mainScreen.getWidth() / 2, mainScreen.getHeight());
+		gameDivider.setColor(Color.white);
+		
+		contents.add(gameDivider);
+		mainScreen.add(gameDivider);
 	}
 }
