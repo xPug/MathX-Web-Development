@@ -1,11 +1,10 @@
 
 public class Questions {
+	private QuestionType type;
 	
-	private String questions;
-	private GamePane gameScreen;
-	
-	public Questions(GamePane gameScreen) {
-		this.gameScreen = gameScreen;
+	public Questions(QuestionType type) {
+		this.type = type;
+		
 	}
 	
 	public String additionQuestion() {
@@ -22,5 +21,9 @@ public class Questions {
 	
 	public String divisionQuestion() {
 		return "";
+	}
+	
+	public QuestionType getType() {
+		return type;
 	}
 }
