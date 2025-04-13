@@ -20,19 +20,19 @@ public class Questions {
 	
 	
 	public String additionQuestion() {
-		return "";
+		return valueOne + " + " + valueTwo;
 	}
 	
 	public String subtractionQuestion() {
-		return "";
+		return valueOne + " - " + valueTwo;
 	}
 	
 	public String multiplicationQuestion() {
-		return "";
+		return valueOne + " x " + valueTwo;
 	}
 	
 	public String divisionQuestion() {
-		return "";
+		return valueOne + " / " + valueTwo;
 	}
 	
 	public QuestionType getType() {
