@@ -43,18 +43,23 @@ public class GamePane extends GraphicPane {
 		if (randomType == 0) {
 			questionType = QuestionType.ADDITION;
 			gameQuestion = new Questions(questionType);
+			gameQuestion.twoDigitGenerator();
+			displayQuestion = new GLabel(gameQuestion.additionQuestion(), (mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 10);
 		}
 		else if (randomType == 1) {
 			questionType = QuestionType.SUBTRACTION;
 			gameQuestion = new Questions(questionType);
+			displayQuestion = new GLabel(gameQuestion.subtractionQuestion(), (mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 10);
 		}
 		else if (randomType == 2) {
 			questionType = QuestionType.MULTIPLICATION;
 			gameQuestion = new Questions(questionType);
+			displayQuestion = new GLabel(gameQuestion.multiplicationQuestion(), (mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 10);
 		}
 		else {
 			questionType = QuestionType.DIVISION;
 			gameQuestion = new Questions(questionType);
+			displayQuestion = new GLabel(gameQuestion.divisionQuestion(), (mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 10);
 		}
 		
 	}

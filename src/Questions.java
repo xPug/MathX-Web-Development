@@ -12,9 +12,12 @@ public class Questions {
 	
 	public void oneDigitGenerator() {
 	    valueOne = (int)(Math.random() * 10 + 1);
+	    valueTwo = (int)(Math.random() * 10 + 1);
+	    
 	}
 	
 	public void twoDigitGenerator() {
+	    valueOne = (int)(Math.random() * 100 + 1);
 		valueTwo = (int)(Math.random() * 100 + 1);
 	}
 	
