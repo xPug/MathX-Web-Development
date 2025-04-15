@@ -6,7 +6,8 @@ import acm.graphics.*;
 public class GamePane extends GraphicPane {
 	private GRect backGround;
 	private GLine gameDivider;
-	
+	private GLabel displayQuestion;
+
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
 	}
@@ -32,6 +33,30 @@ public class GamePane extends GraphicPane {
 	    
 	    contents.add(backGround);
 	    mainScreen.add(backGround);
+	}
+	
+	public void getQuestion() {
+		int randomType = (int)(Math.random() * 4);
+		QuestionType questionType;
+		Questions gameQuestion;
+		
+		if (randomType == 0) {
+			questionType = QuestionType.ADDITION;
+			gameQuestion = new Questions(questionType);
+		}
+		else if (randomType == 1) {
+			questionType = QuestionType.SUBTRACTION;
+			gameQuestion = new Questions(questionType);
+		}
+		else if (randomType == 2) {
+			questionType = QuestionType.MULTIPLICATION;
+			gameQuestion = new Questions(questionType);
+		}
+		else {
+			questionType = QuestionType.DIVISION;
+			gameQuestion = new Questions(questionType);
+		}
+		
 	}
 	
 	public void gameLine() {
