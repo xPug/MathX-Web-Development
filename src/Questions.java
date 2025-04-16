@@ -11,14 +11,14 @@ public class Questions {
 	}
 	
 	public void oneDigitGenerator() {
-	    valueOne = (int)(Math.random() * 10 + 1);
-	    valueTwo = (int)(Math.random() * 10 + 1);
+	    valueOne = (int)(Math.random() * 9);
+	    valueTwo = (int)(Math.random() * 9);
 	    
 	}
 	
 	public void twoDigitGenerator() {
-	    valueOne = (int)(Math.random() * 100 + 1);
-		valueTwo = (int)(Math.random() * 100 + 1);
+	    valueOne = (int)(Math.random() * 89 + 10);
+		valueTwo = (int)(Math.random() * 89 + 10);
 	}
 	
 	
@@ -27,6 +27,11 @@ public class Questions {
 	}
 	
 	public String subtractionQuestion() {
+		if (valueOne < valueTwo) {
+			int temp = valueOne;
+			valueOne = valueTwo;
+			valueTwo = temp;
+		}
 		return valueOne + " - " + valueTwo;
 	}
 	
@@ -35,6 +40,10 @@ public class Questions {
 	}
 	
 	public String divisionQuestion() {
+		while (valueOne % valueTwo != 0) {
+			valueOne = (int)(Math.random() * 89 + 10);
+			valueTwo = (int)(Math.random() * 99);
+		}
 		return valueOne + " / " + valueTwo;
 	}
 	
