@@ -4,6 +4,7 @@ public class Questions {
 	private QuestionType type;
 	private int valueOne;
 	private int valueTwo;
+	private int answer;
 	
 	public Questions(QuestionType type) {
 		this.type = type;
@@ -13,7 +14,6 @@ public class Questions {
 	public void oneDigitGenerator() {
 	    valueOne = (int)(Math.random() * 9);
 	    valueTwo = (int)(Math.random() * 9);
-	    
 	}
 	
 	public void twoDigitGenerator() {
@@ -23,6 +23,7 @@ public class Questions {
 	
 	
 	public String additionQuestion() {
+		answer = valueOne + valueTwo;
 		return valueOne + " + " + valueTwo;
 	}
 	
@@ -32,10 +33,12 @@ public class Questions {
 			valueOne = valueTwo;
 			valueTwo = temp;
 		}
+		answer = valueOne - valueTwo;
 		return valueOne + " - " + valueTwo;
 	}
 	
 	public String multiplicationQuestion() {
+		answer = valueOne * valueTwo;
 		return valueOne + " x " + valueTwo;
 	}
 	
@@ -44,7 +47,12 @@ public class Questions {
 			valueOne = (int)(Math.random() * 89 + 10);
 			valueTwo = (int)(Math.random() * 99);
 		}
+		answer = valueOne / valueTwo;
 		return valueOne + " / " + valueTwo;
+	}
+	
+	public int returnAnswer() {
+		return answer;
 	}
 	
 	public QuestionType getType() {

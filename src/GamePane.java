@@ -5,7 +5,7 @@ import acm.graphics.*;
 
 public class GamePane extends GraphicPane {
 	private GRect backGround;
-	private GLine gameDivider;
+	// private GLine gameDivider;
 	private GLabel displayQuestion;
 
 	public GamePane(MainApplication mainScreen) {
