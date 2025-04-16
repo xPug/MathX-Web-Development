@@ -15,7 +15,7 @@ public class GamePane extends GraphicPane {
 	@Override
 	public void showContent() {
 		backGround();
-		gameLine();
+		// gameLine();
 		getQuestion();
 	}
 	
@@ -46,47 +46,49 @@ public class GamePane extends GraphicPane {
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
 			displayQuestion = new GLabel(gameQuestion.additionQuestion(), 100, 100);
-			displayQuestion.setFont("Arial-Bold-40");
-			displayQuestion.setColor(Color.YELLOW);
-			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 50);
+			displayQuestion.setFont("Arial-Bold-100");
+			displayQuestion.setColor(Color.WHITE);
+			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 100);
 		}
 		else if (randomType == 1) {
 			questionType = QuestionType.SUBTRACTION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
 			displayQuestion = new GLabel(gameQuestion.subtractionQuestion(), 100, 100);
-			displayQuestion.setFont("Arial-Bold-40");
-			displayQuestion.setColor(Color.YELLOW);
-			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 50);
+			displayQuestion.setFont("Arial-Bold-100");
+			displayQuestion.setColor(Color.WHITE);
+			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 100);
 		}
 		else if (randomType == 2) {
 			questionType = QuestionType.MULTIPLICATION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
 			displayQuestion = new GLabel(gameQuestion.multiplicationQuestion(), 100, 100);
-			displayQuestion.setFont("Arial-Bold-40");
-			displayQuestion.setColor(Color.YELLOW);
-			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 50);
+			displayQuestion.setFont("Arial-Bold-100");
+			displayQuestion.setColor(Color.WHITE);
+			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 100);
 		}
 		else {
 			questionType = QuestionType.DIVISION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
 			displayQuestion = new GLabel(gameQuestion.divisionQuestion(), 100, 100);
-			displayQuestion.setFont("Arial-Bold-40");
-			displayQuestion.setColor(Color.YELLOW);
-			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 50);
+			displayQuestion.setFont("Arial-Bold-100");
+			displayQuestion.setColor(Color.WHITE);
+			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 100);
 		}
 		
 		contents.add(displayQuestion);
 		mainScreen.add(displayQuestion);
 	}
 	
-	public void gameLine() {
+	/* public void gameLine() {
 		gameDivider = new GLine(mainScreen.getWidth() / 2, 0, mainScreen.getWidth() / 2, mainScreen.getHeight());
 		gameDivider.setColor(Color.white);
 		
 		contents.add(gameDivider);
 		mainScreen.add(gameDivider);
 	}
+	
+	*/
 }
