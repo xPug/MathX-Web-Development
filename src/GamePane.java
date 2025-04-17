@@ -1,5 +1,5 @@
 import java.awt.Color;
-import java.awt.event.MouseEvent;
+import java.awt.event.KeyEvent;
 
 import acm.graphics.*;
 
@@ -7,6 +7,9 @@ public class GamePane extends GraphicPane {
 	private GRect backGround;
 	// private GLine gameDivider;
 	private GLabel displayQuestion;
+	private GRect inputBox;
+	private GLabel userInputLabel;
+	private String userInput = "";
 
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -14,6 +17,7 @@ public class GamePane extends GraphicPane {
 	
 	@Override
 	public void showContent() {
+		userInput = "";
 		backGround();
 		// gameLine();
 		getQuestion();
@@ -80,6 +84,22 @@ public class GamePane extends GraphicPane {
 		
 		contents.add(displayQuestion);
 		mainScreen.add(displayQuestion);
+		
+		inputBox = new GRect(300, 100);  // width, height of input box
+		inputBox.setFilled(true);
+		inputBox.setFillColor(Color.WHITE);
+		inputBox.setColor(Color.GRAY);
+		inputBox.setLocation((mainScreen.getWidth() - inputBox.getWidth()) / 2, 200);
+
+		// Create user input label
+		userInputLabel = new GLabel("", inputBox.getX() + 10, inputBox.getY() + 65);  // Y + 65 for vertical centering
+		userInputLabel.setFont("Arial-50");
+		userInputLabel.setColor(Color.BLACK);
+
+		contents.add(inputBox);
+		contents.add(userInputLabel);
+		mainScreen.add(inputBox);
+		mainScreen.add(userInputLabel);
 	}
 	
 	/* public void gameLine() {
@@ -91,4 +111,16 @@ public class GamePane extends GraphicPane {
 	}
 	
 	*/
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		char ch = e.getKeyChar();
+		if (Character.isDigit(ch)) {
+			userInput += ch;
+			userInputLabel.setLabel(userInput);
+		} else if (ch == '\b' && userInput.length() > 0) { // Backspace
+			userInput = userInput.substring(0, userInput.length() - 1);
+			userInputLabel.setLabel(userInput);
+		}
+	}
 }

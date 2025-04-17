@@ -21,6 +21,7 @@ public class MainApplication extends GraphicsProgram {
 	protected void setupInteractions() {
 		requestFocus();
 		addMouseListeners();
+		addKeyListeners();
 	}
 	
 	public void init() {
