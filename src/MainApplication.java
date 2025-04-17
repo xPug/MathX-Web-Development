@@ -2,6 +2,7 @@ import acm.graphics.GObject;
 import acm.program.*;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyEvent;
 
 public class MainApplication extends GraphicsProgram {
 	// Optimized to most popular
@@ -103,5 +104,20 @@ public class MainApplication extends GraphicsProgram {
 		if(currentScreen != null) {
 			currentScreen.mouseMoved(e);
 		}
+	}
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (currentScreen != null) currentScreen.keyPressed(e);
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if (currentScreen != null) currentScreen.keyReleased(e);
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if (currentScreen != null) currentScreen.keyTyped(e);
 	}
 }
