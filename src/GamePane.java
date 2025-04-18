@@ -85,7 +85,7 @@ public class GamePane extends GraphicPane {
 		contents.add(displayQuestion);
 		mainScreen.add(displayQuestion);
 		
-		inputBox = new GRect(300, 100);  // width, height of input box
+		inputBox = new GRect(200, 100);  // width, height of input box
 		inputBox.setFilled(true);
 		inputBox.setFillColor(Color.WHITE);
 		inputBox.setColor(Color.GRAY);
@@ -93,7 +93,7 @@ public class GamePane extends GraphicPane {
 
 		// Create user input label
 		userInputLabel = new GLabel("", inputBox.getX() + 10, inputBox.getY() + 65);  // Y + 65 for vertical centering
-		userInputLabel.setFont("Arial-50");
+		userInputLabel.setFont("Impact-50");
 		userInputLabel.setColor(Color.BLACK);
 
 		contents.add(inputBox);
@@ -112,15 +112,23 @@ public class GamePane extends GraphicPane {
 	
 	*/
 	
+	private void centerUserInputLabel() {
+		double centerX = inputBox.getX() + (inputBox.getWidth() - userInputLabel.getWidth()) / 2;
+		double baseY = inputBox.getY() + (inputBox.getHeight() + userInputLabel.getAscent()) / 2 - 10;
+		userInputLabel.setLocation(centerX, baseY);
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		char ch = e.getKeyChar();
 		if (Character.isDigit(ch) && userInput.length() < 5) {
 			userInput += ch;
 			userInputLabel.setLabel(userInput);
+			centerUserInputLabel();
 		} else if (ch == '\b' && userInput.length() > 0) { // Backspace
 			userInput = userInput.substring(0, userInput.length() - 1);
 			userInputLabel.setLabel(userInput);
+			centerUserInputLabel();
 		}
 	}
 }
