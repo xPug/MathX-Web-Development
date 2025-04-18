@@ -115,7 +115,7 @@ public class GamePane extends GraphicPane {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		char ch = e.getKeyChar();
-		if (Character.isDigit(ch)) {
+		if (Character.isDigit(ch) && userInput.length() < 5) {
 			userInput += ch;
 			userInputLabel.setLabel(userInput);
 		} else if (ch == '\b' && userInput.length() > 0) { // Backspace
