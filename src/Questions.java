@@ -46,6 +46,9 @@ public class Questions {
 		while (valueOne % valueTwo != 0) {
 			valueOne = (int)(Math.random() * 89 + 10);
 			valueTwo = (int)(Math.random() * 99);
+			if (valueTwo == 0) {
+				valueTwo++;
+			}
 		}
 		answer = valueOne / valueTwo;
 		return valueOne + " / " + valueTwo;
