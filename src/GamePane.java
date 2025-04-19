@@ -49,6 +49,11 @@ public class GamePane extends GraphicPane {
 			questionType = QuestionType.ADDITION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
+			
+			if (this.displayQuestion != null) {
+				displayQuestion.setLabel("");
+			}
+			
 			displayQuestion = new GLabel(gameQuestion.additionQuestion(), 100, 100);
 			displayQuestion.setFont("Arial-Bold-100");
 			displayQuestion.setColor(Color.WHITE);
@@ -58,6 +63,11 @@ public class GamePane extends GraphicPane {
 			questionType = QuestionType.SUBTRACTION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
+			
+			if (this.displayQuestion != null) {
+				displayQuestion.setLabel("");
+			}
+			
 			displayQuestion = new GLabel(gameQuestion.subtractionQuestion(), 100, 100);
 			displayQuestion.setFont("Arial-Bold-100");
 			displayQuestion.setColor(Color.WHITE);
@@ -67,6 +77,11 @@ public class GamePane extends GraphicPane {
 			questionType = QuestionType.MULTIPLICATION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
+			
+			if (this.displayQuestion != null) {
+				displayQuestion.setLabel("");
+			}
+			
 			displayQuestion = new GLabel(gameQuestion.multiplicationQuestion(), 100, 100);
 			displayQuestion.setFont("Arial-Bold-100");
 			displayQuestion.setColor(Color.WHITE);
@@ -76,6 +91,11 @@ public class GamePane extends GraphicPane {
 			questionType = QuestionType.DIVISION;
 			gameQuestion = new Questions(questionType);
 			gameQuestion.twoDigitGenerator();
+			
+			if (this.displayQuestion != null) {
+				displayQuestion.setLabel("");
+			}
+			
 			displayQuestion = new GLabel(gameQuestion.divisionQuestion(), 100, 100);
 			displayQuestion.setFont("Arial-Bold-100");
 			displayQuestion.setColor(Color.WHITE);
@@ -129,8 +149,10 @@ public class GamePane extends GraphicPane {
 			if (answer == gameQuestion.getAnswer()) {
 				System.out.println("Correct!");
 				// You can add logic here to update score or move to the next question
+				getQuestion();
 			} else {
 				System.out.println("Incorrect. Try again or show correct answer.");
+				getQuestion();
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("Invalid input.");
