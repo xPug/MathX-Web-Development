@@ -148,11 +148,12 @@ public class GamePane extends GraphicPane {
 			// Compare with actual answer from gameQuestion
 			if (answer == gameQuestion.getAnswer()) {
 				System.out.println("Correct!");
-				// You can add logic here to update score or move to the next question
 				getQuestion();
+				userInput = "";
 			} else {
 				System.out.println("Incorrect. Try again or show correct answer.");
 				getQuestion();
+				userInput = "";
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("Invalid input.");
