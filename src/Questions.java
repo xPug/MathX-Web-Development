@@ -51,7 +51,7 @@ public class Questions {
 		return valueOne + " / " + valueTwo;
 	}
 	
-	public int returnAnswer() {
+	public int getAnswer() {
 		return answer;
 	}
 	

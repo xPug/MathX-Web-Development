@@ -10,6 +10,7 @@ public class GamePane extends GraphicPane {
 	private GRect inputBox;
 	private GLabel userInputLabel;
 	private String userInput = "";
+	private Questions gameQuestion;
 
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -43,7 +44,6 @@ public class GamePane extends GraphicPane {
 	public void getQuestion() {
 		int randomType = (int)(Math.random() * 4);
 		QuestionType questionType;
-		Questions gameQuestion;
 		
 		if (randomType == 0) {
 			questionType = QuestionType.ADDITION;
@@ -81,6 +81,7 @@ public class GamePane extends GraphicPane {
 			displayQuestion.setColor(Color.WHITE);
 			displayQuestion.setLocation((mainScreen.getWidth() - displayQuestion.getWidth()) / 2, 100);
 		}
+
 		
 		contents.add(displayQuestion);
 		mainScreen.add(displayQuestion);
@@ -118,6 +119,24 @@ public class GamePane extends GraphicPane {
 		userInputLabel.setLocation(centerX, baseY);
 	}
 	
+	private void submitAnswer() {
+		if (userInput.isEmpty()) return;
+
+		try {
+			int answer = Integer.parseInt(userInput);
+			
+			// Compare with actual answer from gameQuestion
+			if (answer == gameQuestion.getAnswer()) {
+				System.out.println("Correct!");
+				// You can add logic here to update score or move to the next question
+			} else {
+				System.out.println("Incorrect. Try again or show correct answer.");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Invalid input.");
+		}
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		char ch = e.getKeyChar();
@@ -129,6 +148,8 @@ public class GamePane extends GraphicPane {
 			userInput = userInput.substring(0, userInput.length() - 1);
 			userInputLabel.setLabel(userInput);
 			centerUserInputLabel();
+		} else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			submitAnswer();
 		}
 	}
 }
