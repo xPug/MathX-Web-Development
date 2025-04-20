@@ -11,6 +11,7 @@ public class GamePane extends GraphicPane {
 	private GLabel userInputLabel;
 	private String userInput = "";
 	private Questions gameQuestion;
+	private Score playerScore;
 
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
@@ -19,6 +20,7 @@ public class GamePane extends GraphicPane {
 	@Override
 	public void showContent() {
 		userInput = "";
+		playerScore.startScore();
 		backGround();
 		// gameLine();
 		getQuestion();
@@ -148,6 +150,7 @@ public class GamePane extends GraphicPane {
 			// Compare with actual answer from gameQuestion
 			if (answer == gameQuestion.getAnswer()) {
 				System.out.println("Correct!");
+				playerScore.correctAnswer();
 				getQuestion();
 				userInput = "";
 			} else {
