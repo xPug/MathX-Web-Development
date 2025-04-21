@@ -167,8 +167,8 @@ public class GamePane extends GraphicPane {
 	}
 	
 	private void playerScoreDisplay() {
-		playerScoreLabel = new GLabel("0", mainScreen.getWidth() / 2, mainScreen.getHeight() / 2 + 100);
-		playerScoreLabel.setFont("Impact-50");
+		playerScoreLabel = new GLabel("Score: 0", mainScreen.getWidth() / 2 - 150, mainScreen.getHeight() / 2 + 100);
+		playerScoreLabel.setFont("Impact-100");
 		playerScoreLabel.setColor(Color.YELLOW);
 		
 		contents.add(playerScoreLabel);
