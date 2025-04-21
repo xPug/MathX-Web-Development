@@ -154,6 +154,7 @@ public class GamePane extends GraphicPane {
 			if (answer == gameQuestion.getAnswer()) {
 				System.out.println("Correct!");
 				playerScore.correctAnswer();
+				updateScoreLabel();
 				getQuestion();
 				userInput = "";
 			} else {
@@ -173,6 +174,11 @@ public class GamePane extends GraphicPane {
 		
 		contents.add(playerScoreLabel);
 		mainScreen.add(playerScoreLabel);
+	}
+	
+	public void updateScoreLabel() {
+		playerScoreLabel.setLabel("Score: " + playerScore.getPlayerScore());
+		playerScoreLabel.setLocation((mainScreen.getWidth() - playerScoreLabel.getWidth()) / 2 , mainScreen.getHeight() / 2 + 100);
 	}
 	
 	@Override
