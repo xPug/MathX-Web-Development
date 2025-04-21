@@ -1,11 +1,8 @@
 
 public class Score {
 	private int playerScore;
-	private GamePane gamePane;
 	
-	public Score (GamePane gameScreen) {
-		this.gamePane = gameScreen;
-	}
+	public Score () {}
 	
 	public void startScore() {
 		playerScore = 0;

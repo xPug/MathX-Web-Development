@@ -9,12 +9,14 @@ public class GamePane extends GraphicPane {
 	private GLabel displayQuestion;
 	private GRect inputBox;
 	private GLabel userInputLabel;
+	private GLabel playerScoreLabel;
 	private String userInput = "";
 	private Questions gameQuestion;
 	private Score playerScore;
 
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
+		this.playerScore = new Score();
 	}
 	
 	@Override
@@ -22,6 +24,7 @@ public class GamePane extends GraphicPane {
 		userInput = "";
 		playerScore.startScore();
 		backGround();
+		playerScoreDisplay();
 		// gameLine();
 		getQuestion();
 	}
@@ -161,6 +164,15 @@ public class GamePane extends GraphicPane {
 		} catch (NumberFormatException e) {
 			System.out.println("Invalid input.");
 		}
+	}
+	
+	private void playerScoreDisplay() {
+		playerScoreLabel = new GLabel("0", mainScreen.getWidth() / 2, mainScreen.getHeight() / 2 + 100);
+		playerScoreLabel.setFont("Impact-50");
+		playerScoreLabel.setColor(Color.YELLOW);
+		
+		contents.add(playerScoreLabel);
+		mainScreen.add(playerScoreLabel);
 	}
 	
 	@Override
