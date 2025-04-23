@@ -26,6 +26,21 @@ public class GameTimer {
 			}
 		}, 1000, 1000);
 	}
+		
+		//Timer stops when it reaches to 0
+		public void stopCountdown(){
+			if (countdownTimer != null) {
+	            countdownTimer.purge();
+	        }
+		}
+		
+		//Get the remaining time for count down
+		public Timer getCountdownTimer() {
+			if (countdownTimer == null) {
+				return null;
+			}
+			return countdownTimer;
+		}
 	
 	// math to make the timer change between minutes and seconds
     private String formatTime() {
