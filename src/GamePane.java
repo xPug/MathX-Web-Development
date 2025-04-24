@@ -181,6 +181,8 @@ public class GamePane extends GraphicPane {
 		playerScoreLabel.setLocation((mainScreen.getWidth() - playerScoreLabel.getWidth()) / 2 , mainScreen.getHeight() / 2 + 100);
 	}
 	
+	public void updateTimerLabel() {}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		char ch = e.getKeyChar();
