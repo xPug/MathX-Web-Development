@@ -13,10 +13,13 @@ public class GamePane extends GraphicPane {
 	private String userInput = "";
 	private Questions gameQuestion;
 	private Score playerScore;
+	private GameTimer gameTimer;
+	private GLabel timerLabel;
 
 	public GamePane(MainApplication mainScreen) {
 		this.mainScreen = mainScreen;
 		this.playerScore = new Score();
+		gameTimer = new GameTimer(this);
 	}
 	
 	@Override
@@ -27,6 +30,9 @@ public class GamePane extends GraphicPane {
 		playerScoreDisplay();
 		// gameLine();
 		getQuestion();
+		addTimer();
+		
+		gameTimer.startCountdown();
 	}
 	
 	@Override
@@ -44,6 +50,16 @@ public class GamePane extends GraphicPane {
 	    
 	    contents.add(backGround);
 	    mainScreen.add(backGround);
+	}
+	
+	private void addTimer() {
+		timerLabel = new GLabel("1:00", 100, 100);
+		timerLabel.setFont("Arial-Bold-40");
+		timerLabel.setColor(Color.YELLOW);
+		timerLabel.setLocation(50, 50);
+		
+		contents.add(timerLabel);
+		mainScreen.add(timerLabel);
 	}
 	
 	public void getQuestion() {
