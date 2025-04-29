@@ -19,7 +19,7 @@ public class GameTimer {
 			@Override
 			public void run() {
 				timeLeft--;
-				// gamePane.updateTimerLabel(formatTime()); will update timer when label is created
+				gamePane.updateTimerLabel(formatTime());
 				if(timeLeft <= 0) {
 					countdownTimer.cancel();
 				}

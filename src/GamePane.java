@@ -197,7 +197,24 @@ public class GamePane extends GraphicPane {
 		playerScoreLabel.setLocation((mainScreen.getWidth() - playerScoreLabel.getWidth()) / 2 , mainScreen.getHeight() / 2 + 100);
 	}
 	
-	public void updateTimerLabel() {}
+	public void updateTimerLabel(String newTime) {
+		timerLabel.setLabel(newTime);
+		timerLabel.sendToFront();
+		
+			
+		/* if (raceTimer.getTimeLeft() == 0) {
+			raceTimer.stopCountdown();
+			gameRunning = false;
+
+			// Clear obstacles
+			for (Obstacle obstacle : obstacleList) {
+				mainScreen.remove(obstacle.getImage());
+			}
+			obstacleList.clear();
+
+			mainScreen.switchToWinScreen(); 
+		} */
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
