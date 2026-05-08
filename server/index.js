@@ -16,16 +16,45 @@ const io = new Server(server, {
     }
 });
 
+let waitingPlayer = null;
+
 io.on("connection", (socket) => {
 
     console.log("Player connected:", socket.id);
 
-    socket.emit("welcome", "Welcome to MathX!");
+    socket.on("findMatch", () => {
 
-    socket.on("disconnect", () => {
-        console.log("Player disconnected:", socket.id);
+        console.log(socket.id, "is looking for a match");
+
+        if (waitingPlayer === null) {
+
+            waitingPlayer = socket;
+
+            socket.emit("waiting");
+
+        } else {
+
+            const roomId = `room-${socket.id}-${waitingPlayer.id}`;
+
+            socket.join(roomId);
+            waitingPlayer.join(roomId);
+
+            io.to(roomId).emit("matchFound", {
+                roomId
+            });
+
+            waitingPlayer = null;
+        }
     });
 
+    socket.on("disconnect", () => {
+
+        console.log("Player disconnected:", socket.id);
+
+        if (waitingPlayer === socket) {
+            waitingPlayer = null;
+        }
+    });
 });
 
 server.listen(3001, () => {
