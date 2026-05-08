@@ -3,7 +3,12 @@ import socket from "./socket";
 
 function App() {
 
-    const [status, setStatus] = useState("Idle");
+     const [status, setStatus] = useState("Idle");
+    const [roomId, setRoomId] = useState("");
+    const [question, setQuestion] = useState("");
+    const [answer, setAnswer] = useState("");
+    const [scores, setScores] = useState({});
+    const [timeLeft, setTimeLeft] = useState(60);
 
     useEffect(() => {
 
@@ -15,8 +20,37 @@ function App() {
             setStatus("Waiting for opponent...");
         });
 
-        socket.on("matchFound", (data) => {
-            setStatus(`Match Found! Room: ${data.roomId}`);
+        socket.on("gameStart", (data) => {
+
+            setStatus("Game Started!");
+
+            setRoomId(data.roomId);
+
+            setQuestion(data.question);
+
+            setScores(data.scores);
+
+            setTimeLeft(data.timeLeft);
+        });
+
+        socket.on("timerUpdate", (data) => {
+            setTimeLeft(data.timeLeft);
+        });
+
+        socket.on("newQuestion", (data) => {
+
+            setQuestion(data.question);
+
+            setScores(data.scores);
+
+            setAnswer("");
+        });
+
+        socket.on("gameOver", (data) => {
+
+            setScores(data.scores);
+
+            setStatus("Game Over!");
         });
 
     }, []);
@@ -28,6 +62,13 @@ function App() {
         setStatus("Searching...");
     }
 
+    function submitAnswer() {
+
+        socket.emit("submitAnswer", {
+            roomId,
+            answer
+        });
+    }
 
     return (
         <div style={{
@@ -48,22 +89,74 @@ function App() {
                 MathX
             </h1>
 
-            <button
-                onClick={findMatch}
-                style={{
-                    padding: "15px 40px",
-                    fontSize: "20px",
-                    border: "none",
-                    borderRadius: "10px",
-                    backgroundColor: "#7c3aed",
-                    color: "white",
-                    cursor: "pointer"
-                }}
-            >
-                PLAY
-            </button>
-
             <h2>{status}</h2>
+
+            {
+                status === "Idle" ||
+                status === "Searching..." ||
+                status === "Waiting for opponent..."
+                ?
+                (
+                    <button
+                        onClick={findMatch}
+                        style={{
+                            padding: "15px 40px",
+                            fontSize: "20px",
+                            border: "none",
+                            borderRadius: "10px",
+                            backgroundColor: "#7c3aed",
+                            color: "white",
+                            cursor: "pointer"
+                        }}
+                    >
+                        PLAY
+                    </button>
+                )
+                :
+                (
+                    <>
+                        <h1>{timeLeft}</h1>
+
+                        <h2>{question}</h2>
+
+                        <input
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
+                            placeholder="Answer"
+                            style={{
+                                padding: "10px",
+                                fontSize: "20px"
+                            }}
+                        />
+
+                        <button
+                            onClick={submitAnswer}
+                            style={{
+                                padding: "10px 30px",
+                                fontSize: "18px",
+                                border: "none",
+                                borderRadius: "10px",
+                                backgroundColor: "#22c55e",
+                                color: "white",
+                                cursor: "pointer"
+                            }}
+                        >
+                            Submit
+                        </button>
+
+                        <div>
+                            {
+                                Object.entries(scores).map(([id, score]) => (
+                                    <h3 key={id}>
+                                        {id === socket.id ? "You" : "Opponent"}: {score}
+                                    </h3>
+                                ))
+                            }
+                        </div>
+                    </>
+                )
+            }
+
         </div>
     );
 }
