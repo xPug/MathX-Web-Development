@@ -18,13 +18,24 @@ const io = new Server(server, {
 
 let waitingPlayer = null;
 
+const games = {};
+
+function generateQuestion() {
+
+    const num1 = Math.floor(Math.random() * 20);
+    const num2 = Math.floor(Math.random() * 20);
+
+    return {
+        question: `${num1} + ${num2}`,
+        answer: num1 + num2
+    };
+}
+
 io.on("connection", (socket) => {
 
     console.log("Player connected:", socket.id);
 
     socket.on("findMatch", () => {
-
-        console.log(socket.id, "is looking for a match");
 
         if (waitingPlayer === null) {
 
@@ -39,11 +50,67 @@ io.on("connection", (socket) => {
             socket.join(roomId);
             waitingPlayer.join(roomId);
 
-            io.to(roomId).emit("matchFound", {
-                roomId
+            const firstQuestion = generateQuestion();
+
+            games[roomId] = {
+                scores: {
+                    [socket.id]: 0,
+                    [waitingPlayer.id]: 0
+                },
+                currentAnswer: firstQuestion.answer,
+                timeLeft: 60
+            };
+
+            io.to(roomId).emit("gameStart", {
+                roomId,
+                question: firstQuestion.question,
+                scores: games[roomId].scores,
+                timeLeft: 60
             });
 
+            const timer = setInterval(() => {
+
+                games[roomId].timeLeft--;
+
+                io.to(roomId).emit("timerUpdate", {
+                    timeLeft: games[roomId].timeLeft
+                });
+
+                if (games[roomId].timeLeft <= 0) {
+
+                    clearInterval(timer);
+
+                    io.to(roomId).emit("gameOver", {
+                        scores: games[roomId].scores
+                    });
+
+                    delete games[roomId];
+                }
+
+            }, 1000);
+
             waitingPlayer = null;
+        }
+    });
+
+    socket.on("submitAnswer", ({ roomId, answer }) => {
+
+        const game = games[roomId];
+
+        if (!game) return;
+
+        if (parseInt(answer) === game.currentAnswer) {
+
+            game.scores[socket.id]++;
+
+            const newQuestion = generateQuestion();
+
+            game.currentAnswer = newQuestion.answer;
+
+            io.to(roomId).emit("newQuestion", {
+                question: newQuestion.question,
+                scores: game.scores
+            });
         }
     });
 
