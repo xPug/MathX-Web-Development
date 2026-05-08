@@ -3,7 +3,7 @@ import socket from "./socket";
 
 function App() {
 
-    const [message, setMessage] = useState("");
+    const [status, setStatus] = useState("Idle");
 
     useEffect(() => {
 
@@ -11,8 +11,8 @@ function App() {
             console.log("Connected:", socket.id);
         });
 
-        socket.on("welcome", (data) => {
-            setMessage(data);
+        socket.on("waiting", () => {
+            setStatus("Waiting for opponent...");
         });
 
         socket.on("matchFound", (data) => {
