@@ -197,12 +197,31 @@ function App() {
                             Submit
                         </button>
 
-                        <div>
+                        <div style={{
+                            display: "flex",
+                            gap: "100px",
+                            marginTop: "20px"
+                        }}>
                             {
                                 Object.entries(scores).map(([id, score]) => (
-                                    <h3 key={id}>
-                                        {id === socket.id ? "You" : "Opponent"}: {score}
-                                    </h3>
+
+                                    <div
+                                        key={id}
+
+                                        style={{
+                                            textAlign: "center"
+                                        }}
+                                    >
+                                        <h2>
+                                            {id === socket.id ? "You" : "Opponent"}
+                                        </h2>
+
+                                        <h1 style={{
+                                            fontSize: "50px"
+                                        }}>
+                                            {score}
+                                        </h1>
+                                    </div>
                                 ))
                             }
                         </div>
