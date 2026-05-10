@@ -72,7 +72,7 @@ function App() {
 
     return (
         <div style={{
-            backgroundColor: "linear-gradient(to bottom, #020617, #0f172a)",
+            background: "linear-gradient(to bottom, #020617, #0f172a)",
             color: "white",
             height: "100vh",
             display: "flex",
