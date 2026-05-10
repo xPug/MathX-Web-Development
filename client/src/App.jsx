@@ -150,7 +150,12 @@ function App() {
                 :
                 (
                     <>
-                        <h1>{timeLeft}</h1>
+                        <h1 style={{
+                            fontSize: "72px",
+                            color: timeLeft <= 10 ? "#ef4444" : "white"
+                        }}>
+                            {timeLeft}
+                        </h1>
 
                         <h1 style={{
                             fontSize: "90px",
