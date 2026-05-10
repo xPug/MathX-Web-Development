@@ -3,7 +3,7 @@ import socket from "./socket";
 
 function App() {
 
-     const [status, setStatus] = useState("Idle");
+    const [status, setStatus] = useState("Idle");
     const [roomId, setRoomId] = useState("");
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
@@ -89,8 +89,6 @@ function App() {
                 MathX
             </h1>
 
-            <h2>{status}</h2>
-
             {
                 status === "Idle" ||
                 status === "Searching..." ||
@@ -111,6 +109,39 @@ function App() {
                     >
                         PLAY
                     </button>
+                )
+                :
+                status === "Game Over!"
+                ?
+                (
+                    <>
+                        <h1>Game Over!</h1>
+
+                        <div>
+                            {
+                                Object.entries(scores).map(([id, score]) => (
+                                    <h2 key={id}>
+                                        {id === socket.id ? "You" : "Opponent"}: {score}
+                                    </h2>
+                                ))
+                            }
+                        </div>
+
+                        <button
+                            onClick={() => window.location.reload()}
+                            style={{
+                                padding: "15px 40px",
+                                fontSize: "20px",
+                                border: "none",
+                                borderRadius: "10px",
+                                backgroundColor: "#7c3aed",
+                                color: "white",
+                                cursor: "pointer"
+                            }}
+                        >
+                            Play Again
+                        </button>
+                    </>
                 )
                 :
                 (
