@@ -152,7 +152,12 @@ function App() {
                     <>
                         <h1>{timeLeft}</h1>
 
-                        <h2>{question}</h2>
+                        <h1 style={{
+                            fontSize: "90px",
+                            marginBottom: "40px"
+                        }}>
+                            {question}
+                        </h1>
 
                         <input
                             value={answer}
