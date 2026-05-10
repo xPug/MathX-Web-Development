@@ -162,12 +162,20 @@ function App() {
                         <input
                             value={answer}
                             onChange={(e) => setAnswer(e.target.value)}
-                            placeholder="Answer"
-                            style={{
-                                padding: "10px",
-                                fontSize: "20px"
-                            }}
-                        />
+
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    submitAnswer();
+                                }
+                        }}
+
+                        placeholder="Answer"
+
+                        style={{
+                            padding: "10px",
+                            fontSize: "20px"
+                        }}
+                    />
 
                         <button
                             onClick={submitAnswer}
