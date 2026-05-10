@@ -84,7 +84,9 @@ function App() {
         }}>
 
             <h1 style={{
-                fontSize: "60px"
+                fontSize: "72px",
+                marginBottom: "20px",
+                fontWeight: "bold"
             }}>
                 MathX
             </h1>
