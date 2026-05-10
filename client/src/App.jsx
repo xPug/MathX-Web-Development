@@ -100,13 +100,15 @@ function App() {
                     <button
                         onClick={findMatch}
                         style={{
-                            padding: "15px 40px",
-                            fontSize: "20px",
-                            border: "none",
-                            borderRadius: "10px",
-                            backgroundColor: "#7c3aed",
-                            color: "white",
-                            cursor: "pointer"
+                            padding: "18px 50px",
+                fontSize: "24px",
+                border: "none",
+                borderRadius: "14px",
+                background: "linear-gradient(to right, #7c3aed, #9333ea)",
+                color: "white",
+                cursor: "pointer",
+                fontWeight: "bold",
+                boxShadow: "0 0 20px rgba(124, 58, 237, 0.5)"
                         }}
                     >
                         PLAY
