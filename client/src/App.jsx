@@ -80,11 +80,11 @@ function App() {
             alignItems: "center",
             flexDirection: "column",
             fontFamily: "Arial",
-            gap: "20px"
+            gap: "10px"
         }}>
 
             <h1 style={{
-                fontSize: "72px",
+                fontSize: status === "Game Started!" ? "48px" : "72px",
                 marginBottom: "20px",
                 fontWeight: "bold"
             }}>
@@ -119,7 +119,12 @@ function App() {
                 ?
                 (
                     <>
-                        <h1>Game Over!</h1>
+                        <h1 style={{
+                            fontSize: "64px",
+                            marginBottom: "10px"
+                        }}>
+                            Game Over!
+                        </h1>
 
                         <div>
                             {
@@ -158,7 +163,7 @@ function App() {
                         </h1>
 
                         <h1 style={{
-                            fontSize: "90px",
+                            fontSize: "72px",
                             marginBottom: "40px"
                         }}>
                             {question}
