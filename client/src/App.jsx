@@ -70,13 +70,25 @@ function App() {
         });
     }
 
+    const yourScore =
+        scores[socket.id] || 0;
+
+    const opponentEntry =
+        Object.entries(scores).find(
+            ([id]) => id !== socket.id
+        );
+
+    const opponentScore =
+        opponentEntry ? opponentEntry[1] : 0;
+
     return (
         <div style={{
             background: "linear-gradient(to bottom, #020617, #0f172a)",
             color: "white",
-            height: "100vh",
+            minHeight: "100vh",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "flex-start",
+            paddingTop: "20px",
             alignItems: "center",
             flexDirection: "column",
             fontFamily: "Arial",
@@ -204,31 +216,37 @@ function App() {
 
                         <div style={{
                             display: "flex",
-                            gap: "100px",
+                            justifyContent: "space-between",
+                            width: "100%",
+                            maxWidth: "500px",
                             marginTop: "20px"
                         }}>
-                            {
-                                Object.entries(scores).map(([id, score]) => (
 
-                                    <div
-                                        key={id}
+                            <div style={{
+                                textAlign: "center"
+                            }}>
+                                <h2>You</h2>
 
-                                        style={{
-                                            textAlign: "center"
-                                        }}
-                                    >
-                                        <h2>
-                                            {id === socket.id ? "You" : "Opponent"}
-                                        </h2>
+                                <h1 style={{
+                                    fontSize: "50px",
+                                    color: "#22c55e"
+                                }}>
+                                    {yourScore}
+                                </h1>
+                            </div>
 
-                                        <h1 style={{
-                                            fontSize: "50px"
-                                        }}>
-                                            {score}
-                                        </h1>
-                                    </div>
-                                ))
-                            }
+                            <div style={{
+                                textAlign: "center"
+                            }}>
+                                <h2>Opponent</h2>
+
+                                <h1 style={{
+                                    fontSize: "50px",
+                                    color: "#38bdf8"
+                                }}>
+                                    {opponentScore}
+                                </h1>
+                            </div>
                         </div>
                     </>
                 )
