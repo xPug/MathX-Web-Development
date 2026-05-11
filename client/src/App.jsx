@@ -11,6 +11,7 @@ function App() {
     const [timeLeft, setTimeLeft] = useState(60);
     const [feedback, setFeedback] = useState("");
     const [streak, setStreak] = useState(0);
+    const [flashColor, setFlashColor] = useState("");
 
     useEffect(() => {
 
