@@ -92,6 +92,7 @@ function App() {
             roomId,
             answer
         });
+        setAnswer("");
     }
 
     const yourScore =
