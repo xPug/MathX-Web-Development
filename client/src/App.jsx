@@ -124,7 +124,7 @@ function App() {
 
     return (
         <div style={{
-            background: "linear-gradient(to bottom, #020617, #0f172a)",
+            background: flashColor || "linear-gradient(to bottom, #020617, #0f172a)",
             color: "white",
             minHeight: "100vh",
             display: "flex",
