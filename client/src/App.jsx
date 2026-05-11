@@ -52,11 +52,13 @@ function App() {
         socket.on("correctAnswer", () => {
 
             setFeedback("Correct!");
+            setFlashColor("#14532d");
 
             setStreak((prev) => prev + 1);
 
             setTimeout(() => {
                 setFeedback("");
+                setFlashColor("");
             }, 500);
         });
 
