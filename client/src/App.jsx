@@ -65,6 +65,7 @@ function App() {
         socket.on("wrongAnswer", () => {
 
             setFeedback("Wrong!");
+            setFlashColor("#7f1d1d");
 
             setStreak(0);
 
