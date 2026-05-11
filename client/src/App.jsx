@@ -9,6 +9,8 @@ function App() {
     const [answer, setAnswer] = useState("");
     const [scores, setScores] = useState({});
     const [timeLeft, setTimeLeft] = useState(60);
+    const [feedback, setFeedback] = useState("");
+    const [streak, setStreak] = useState(0);
 
     useEffect(() => {
 
@@ -44,6 +46,28 @@ function App() {
             setScores(data.scores);
 
             setAnswer("");
+        });
+
+        socket.on("correctAnswer", () => {
+
+            setFeedback("Correct!");
+
+            setStreak((prev) => prev + 1);
+
+            setTimeout(() => {
+                setFeedback("");
+            }, 500);
+        });
+
+        socket.on("wrongAnswer", () => {
+
+            setFeedback("Wrong!");
+
+            setStreak(0);
+
+            setTimeout(() => {
+                setFeedback("");
+            }, 500);
         });
 
         socket.on("gameOver", (data) => {
