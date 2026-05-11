@@ -238,6 +238,23 @@ function App() {
                             Submit
                         </button>
 
+                        <h2 style={{
+                            color:
+                                feedback === "Correct!"
+                                ? "#22c55e"
+                                : "#ef4444",
+
+                            height: "30px"
+                        }}>
+                            {feedback}
+                        </h2>
+
+                        <h2 style={{
+                            color: "#f59e0b"
+                        }}>
+                            🔥 Streak: {streak}
+                        </h2>
+
                         <div style={{
                             display: "flex",
                             justifyContent: "space-between",
