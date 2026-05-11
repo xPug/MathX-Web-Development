@@ -100,6 +100,7 @@ io.on("connection", (socket) => {
         if (!game) return;
 
         if (parseInt(answer) === game.currentAnswer) {
+            socket.emit("correctAnswer");
 
             game.scores[socket.id]++;
 
@@ -111,6 +112,9 @@ io.on("connection", (socket) => {
                 question: newQuestion.question,
                 scores: game.scores
             });
+        } else {
+
+            socket.emit("wrongAnswer");
         }
     });
 
