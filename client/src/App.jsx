@@ -77,6 +77,18 @@ function App() {
             setStatus("Game Over!");
         });
 
+        return () => {
+
+            socket.off("connect");
+            socket.off("waiting");
+            socket.off("gameStart");
+            socket.off("timerUpdate");
+            socket.off("newQuestion");
+            socket.off("correctAnswer");
+            socket.off("wrongAnswer");
+            socket.off("gameOver");
+        };
+
     }, []);
 
     function findMatch() {
