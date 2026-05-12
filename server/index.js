@@ -67,7 +67,7 @@ io.on("connection", (socket) => {
             socket.join(roomId);
             waitingPlayer.join(roomId);
 
-            const firstQuestion = generateQuestion();
+            const firstQuestion = generateQuestion(60);
 
             games[roomId] = {
                 scores: {
