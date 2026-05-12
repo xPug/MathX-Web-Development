@@ -22,8 +22,25 @@ const games = {};
 
 function generateQuestion() {
 
-    const num1 = Math.floor(Math.random() * 20);
-    const num2 = Math.floor(Math.random() * 20);
+    let maxNumber = 10;
+
+    if (timeLeft <= 45) {
+        maxNumber = 20;
+    }
+
+    if (timeLeft <= 30) {
+        maxNumber = 50;
+    }
+
+    if (timeLeft <= 15) {
+        maxNumber = 100;
+    }
+
+    const num1 =
+        Math.floor(Math.random() * maxNumber);
+
+    const num2 =
+        Math.floor(Math.random() * maxNumber);
 
     return {
         question: `${num1} + ${num2}`,
