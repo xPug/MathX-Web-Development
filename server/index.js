@@ -121,7 +121,7 @@ io.on("connection", (socket) => {
 
             game.scores[socket.id]++;
 
-            const newQuestion = generateQuestion();
+            const newQuestion = generateQuestion(game.timeLeft);
 
             game.currentAnswer = newQuestion.answer;
 
