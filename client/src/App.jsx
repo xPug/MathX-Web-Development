@@ -210,7 +210,7 @@ function App() {
                     <>
                         <h1 style={{
                             fontSize: "72px",
-                            color: timeLeft <= 10 ? "#ef4444" : "white"
+                            color: timeLeft <= 10 ? "#ef4444" : timeLeft <= 20 ? "#f59e0b" : "white"
                         }}>
                             {timeLeft}
                         </h1>
