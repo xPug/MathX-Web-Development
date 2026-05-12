@@ -36,6 +36,8 @@ MathX is an interactive daily mathematics problem-solving game designed to engag
 
 - Hints and Explanations: Offers step-by-step hints and solutions to help players learn and improve.
 
+- Puzzle Aspects and Minigames (e.g. Wordle-like!).
+
 **Target Audience:**
 
 - Students looking to practice and improve their math skills.
