@@ -213,6 +213,16 @@ function App() {
                             color: timeLeft <= 10 ? "#ef4444" : timeLeft <= 20 ? "#f59e0b" : "white"
                         }}>
                             {timeLeft}
+                                {
+                                    timeLeft <= 10 && (
+                                        <h2 style={{
+                                            color: "#ef4444",
+                                            animation: "pulse 0.5s infinite"
+                                        }}>
+                                            FINAL SECONDS
+                                        </h2>
+                                    )
+                                }
                         </h1>
 
                         <h1 style={{
