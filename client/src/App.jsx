@@ -21,6 +21,7 @@ function App() {
     const [feedback, setFeedback] = useState("");
     const [streak, setStreak] = useState(0);
     const [flashColor, setFlashColor] = useState("");
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
 
