@@ -185,22 +185,77 @@ function App() {
                 status === "Waiting for opponent..."
                 ?
                 (
-                    <button
-                        onClick={findMatch}
-                        style={{
-                            padding: "18px 50px",
-                fontSize: "24px",
-                border: "none",
-                borderRadius: "14px",
-                background: "linear-gradient(to right, #7c3aed, #9333ea)",
-                color: "white",
-                cursor: "pointer",
-                fontWeight: "bold",
-                boxShadow: "0 0 20px rgba(124, 58, 237, 0.5)"
-                        }}
-                    >
-                        PLAY
-                    </button>
+                    <>
+
+                        {
+                            !user
+                            ?
+                            (
+                                <button
+                                    onClick={login}
+
+                                    style={{
+                                        padding: "15px 40px",
+                                        fontSize: "20px",
+                                        border: "none",
+                                        borderRadius: "10px",
+                                        marginBottom: "20px",
+                                        cursor: "pointer"
+                                    }}
+                                >
+                                    Sign In With Google
+                                </button>
+                            )
+                            :
+                            (
+                                <div style={{
+                                    textAlign: "center"
+                                }}>
+
+                                    <img
+                                        src={user.photoURL}
+
+                                        style={{
+                                            width: "80px",
+                                            borderRadius: "50%"
+                                        }}
+                                    />
+
+                                    <h2>
+                                        {user.displayName}
+                                    </h2>
+
+                                    <button
+                                        onClick={logout}
+                                    >
+                                        Logout
+                                    </button>
+
+                                </div>
+                            )
+                        }
+
+                        <button
+                            onClick={findMatch}
+
+                            disabled={!user}
+
+                            style={{
+                                padding: "18px 50px",
+                                fontSize: "24px",
+                                border: "none",
+                                borderRadius: "14px",
+                                background: "linear-gradient(to right, #7c3aed, #9333ea)",
+                                color: "white",
+                                cursor: "pointer",
+                                fontWeight: "bold",
+                                boxShadow: "0 0 20px rgba(124, 58, 237, 0.5)"
+                            }}
+                        >
+                            PLAY
+                        </button>
+
+                    </>
                 )
                 :
                 status === "Game Over!"
