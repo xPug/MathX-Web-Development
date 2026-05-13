@@ -20,7 +20,7 @@ let waitingPlayer = null;
 
 const games = {};
 
-function generateQuestion() {
+function generateQuestion(timeLeft) {
 
     let maxNumber = 10;
 
