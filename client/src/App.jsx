@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 import socket from "./socket";
+import {
+    auth,
+    provider
+} from "./firebase";
+
+import {
+    signInWithPopup,
+    signOut
+} from "firebase/auth";
 
 function App() {
 
