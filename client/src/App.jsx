@@ -105,6 +105,24 @@ function App() {
 
     }, []);
 
+    async function login() {
+
+    try {
+
+        const result =
+            await signInWithPopup(
+                auth,
+                provider
+            );
+
+        setUser(result.user);
+
+    } catch (error) {
+
+        console.log(error);
+    }
+}
+
     function findMatch() {
 
         socket.emit("findMatch");
