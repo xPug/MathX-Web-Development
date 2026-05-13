@@ -208,22 +208,34 @@ function App() {
                 :
                 (
                     <>
-                        <h1 style={{
-                            fontSize: "72px",
-                            color: timeLeft <= 10 ? "#ef4444" : timeLeft <= 20 ? "#f59e0b" : "white"
+                        <div style={{
+                            textAlign: "center"
                         }}>
-                            {timeLeft}
-                                {
-                                    timeLeft <= 10 && (
-                                        <h2 style={{
-                                            color: "#ef4444",
-                                            animation: "pulse 0.5s infinite"
-                                        }}>
-                                            FINAL SECONDS
-                                        </h2>
-                                    )
-                                }
-                        </h1>
+
+                            <h1 style={{
+                                fontSize: "72px",
+                                color:
+                                timeLeft <= 10
+                                ? "#ef4444"
+                                : timeLeft <= 20
+                                ? "#f59e0b"
+                                : "white"
+                            }}>
+                                {timeLeft}
+                            </h1>
+
+                            {
+                                timeLeft <= 10 && (
+                                    <h2 style={{
+                                        color: "#ef4444",
+                                        marginTop: "-10px"
+                                    }}>
+                                        FINAL SECONDS
+                                    </h2>
+                                )
+                            }
+
+                        </div>
 
                         <h1 style={{
                             fontSize: "72px",
