@@ -107,21 +107,28 @@ function App() {
 
     async function login() {
 
-    try {
+        try {
 
-        const result =
-            await signInWithPopup(
-                auth,
-                provider
-            );
+            const result =
+                await signInWithPopup(
+                    auth,
+                    provider
+                );
 
-        setUser(result.user);
+            setUser(result.user);
 
-    } catch (error) {
+        } catch (error) {
 
-        console.log(error);
+            console.log(error);
+        }
     }
-}
+
+    async function logout() {
+
+        await signOut(auth);
+
+        setUser(null);
+    }
 
     function findMatch() {
 
