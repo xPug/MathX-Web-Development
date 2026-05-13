@@ -7,17 +7,17 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyDYAV67z2a1CVkV_GLx74Cw-kgwJn7Tqh0",
 
-    authDomain: "YOUR_AUTH_DOMAIN",
+    authDomain: "mathx-a4830.firebaseapp.com",
 
-    projectId: "YOUR_PROJECT_ID",
+    projectId: "mathx-a4830",
 
-    storageBucket: "YOUR_STORAGE_BUCKET",
+    storageBucket: "mathx-a4830.firebasestorage.app",
 
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    messagingSenderId: "782322205273",
 
-    appId: "YOUR_APP_ID"
+    appId: "1:782322205273:web:e064838f8b882409a82748"
 };
 
 const app =
