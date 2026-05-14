@@ -230,6 +230,16 @@ function App() {
 
                                     <button
                                         onClick={logout}
+
+                                        style={{
+                                            padding: "8px 20px",
+                                            border: "none",
+                                            borderRadius: "8px",
+                                            backgroundColor: "#ef4444",
+                                            color: "white",
+                                            cursor: "pointer",
+                                            marginBottom: "20px"
+                                        }}
                                     >
                                         Logout
                                     </button>
