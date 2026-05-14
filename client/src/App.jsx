@@ -213,11 +213,14 @@ function App() {
                                 }}>
 
                                     <img
-                                        src={user.photoURL}
+                                        src={user.photoURL  + "?sz=200"}
 
                                         style={{
-                                            width: "80px",
-                                            borderRadius: "50%"
+                                            width: "90px",
+                                            height: "90px",
+                                            borderRadius: "50%",
+                                            border: "3px solid #7c3aed",
+                                            marginBottom: "10px"
                                         }}
                                     />
 
