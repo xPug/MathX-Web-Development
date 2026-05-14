@@ -212,17 +212,23 @@ function App() {
                                     textAlign: "center"
                                 }}>
 
-                                    <img
-                                        src={user.photoURL  + "?sz=200"}
-
-                                        style={{
-                                            width: "90px",
-                                            height: "90px",
-                                            borderRadius: "50%",
-                                            border: "3px solid #7c3aed",
-                                            marginBottom: "10px"
-                                        }}
-                                    />
+                                    <div style={{
+                                        width: "90px",
+                                        height: "90px",
+                                        borderRadius: "50%",
+                                        border: "3px solid #7c3aed",
+                                        marginBottom: "10px",
+                                        margin: "0 auto",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        fontSize: "38px",
+                                        lineHeight: "1",
+                                        paddingBottom: "4px",
+                                        backgroundColor: "#1e293b"
+                                    }}>
+                                        👤
+                                    </div>
 
                                     <h2>
                                         {user.displayName}
