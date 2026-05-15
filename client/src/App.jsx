@@ -28,6 +28,7 @@ function App() {
     const [streak, setStreak] = useState(0);
     const [flashColor, setFlashColor] = useState("");
     const [user, setUser] = useState(null);
+    const [playerData, setPlayerData] = useState(null);
 
     useEffect(() => {
 
@@ -121,9 +122,42 @@ function App() {
                     provider
                 );
 
-            setUser(result.user);
+            const currentUser =
+                result.user;
 
-        } catch (error) {
+            setUser(currentUser);
+
+            const userRef =
+                doc(db, "players", currentUser.uid);
+
+            const userSnap =
+                await getDoc(userRef);
+
+            if (!userSnap.exists()) {
+
+            await setDoc(userRef, {
+                name: currentUser.displayName,
+                rating: 1000,
+                wins: 0,
+                losses: 0,
+                gamesPlayed: 0,
+                highestStreak: 0
+            });
+
+            setPlayerData({
+                name: currentUser.displayName,
+                rating: 1000,
+                wins: 0,
+                losses: 0,
+                gamesPlayed: 0,
+                highestStreak: 0
+            });
+
+            } else {
+                setPlayerData(userSnap.data());
+            }
+
+            } catch (error) {
 
             console.log(error);
         }
