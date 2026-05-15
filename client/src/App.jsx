@@ -274,6 +274,17 @@ function App() {
                                         {user.displayName}
                                     </h2>
 
+                                    {
+                                        playerData &&
+                                        (
+                                            <h3 style={{
+                                                color: "#facc15"
+                                            }}>
+                                                ⭐ Rating: {playerData.rating}
+                                            </h3>
+                                        )
+                                    }
+
                                     <button
                                         onClick={logout}
 
