@@ -13,7 +13,9 @@ import { db } from "./firebase";
 import {
     doc,
     getDoc,
-    setDoc
+    setDoc,
+    updateDoc,
+    increment
 } from "firebase/firestore";
 
 function App() {
