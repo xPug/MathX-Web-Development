@@ -93,12 +93,30 @@ function App() {
             }, 500);
         });
 
-        socket.on("gameOver", (data) => {
+        socket.on("gameOver", async (data) => {
 
             setScores(data.scores);
 
             setStatus("Game Over!");
-        });
+
+            const yourFinalScore =
+                data.scores[socket.id] || 0;
+
+            const opponentEntry =
+                Object.entries(data.scores).find(
+                    ([id]) => id !== socket.id
+                );
+
+            const opponentFinalScore =
+                opponentEntry
+                    ? opponentEntry[1]
+                    : 0;
+
+            const didWin =
+                yourFinalScore > opponentFinalScore;
+
+            await updatePlayerStats(didWin);
+                });
 
         return () => {
 
