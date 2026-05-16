@@ -172,6 +172,32 @@ function App() {
         setUser(null);
     }
 
+    async function updatePlayerStats(didWin) {
+
+        if (!user) return;
+
+        const playerRef = doc(db, "players", user.uid);
+
+        await updateDoc(playerRef, {
+
+            gamesPlayed: increment(1),
+
+            wins: didWin
+                ? increment(1)
+                : increment(0),
+
+            losses: didWin
+                ? increment(0)
+                : increment(1),
+
+            rating: didWin
+                ? increment(25)
+                : increment(-15),
+
+            highestStreak: increment(0)
+        });
+    }
+
     function findMatch() {
 
         socket.emit("findMatch");
