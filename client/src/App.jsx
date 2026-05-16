@@ -194,7 +194,8 @@ function App() {
 
         if (!user) return;
 
-        const playerRef = doc(db, "players", user.uid);
+        const playerRef =
+            doc(db, "players", user.uid);
 
         await updateDoc(playerRef, {
 
@@ -210,10 +211,13 @@ function App() {
 
             rating: didWin
                 ? increment(25)
-                : increment(-15),
-
-            highestStreak: increment(0)
+                : increment(-15)
         });
+
+        const updatedSnap =
+            await getDoc(playerRef);
+
+        setPlayerData(updatedSnap.data());
     }
 
     function findMatch() {
