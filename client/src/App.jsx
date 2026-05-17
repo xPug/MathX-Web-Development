@@ -168,7 +168,7 @@ function App() {
             socket.off("gameOver");
         };
 
-    }, []);
+    }, [user]);
 
     async function login() {
 
