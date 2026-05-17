@@ -35,6 +35,31 @@ function App() {
 
     useEffect(() => {
 
+        const unsubscribe =
+            onAuthStateChanged(auth, async (currentUser) => {
+
+                if (currentUser) {
+
+                    setUser(currentUser);
+
+                    const userRef =
+                        doc(db, "players", currentUser.uid);
+
+                    const userSnap =
+                        await getDoc(userRef);
+
+                    if (userSnap.exists()) {
+                        setPlayerData(userSnap.data());
+                    }
+                }
+            });
+
+        return () => unsubscribe();
+
+    }, []);
+
+    useEffect(() => {
+
         socket.on("connect", () => {
             console.log("Connected:", socket.id);
         });
