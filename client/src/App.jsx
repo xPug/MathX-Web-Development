@@ -116,6 +116,14 @@ function App() {
                 yourFinalScore > opponentFinalScore;
 
             await updatePlayerStats(didWin);
+
+            const updatedRef =
+                doc(db, "players", user.uid);
+
+            const updatedSnap =
+                await getDoc(updatedRef);
+
+            setPlayerData(updatedSnap.data());
                 });
 
         return () => {
