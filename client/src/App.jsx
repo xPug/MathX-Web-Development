@@ -7,7 +7,8 @@ import {
 
 import {
     signInWithPopup,
-    signOut
+    signOut,
+    onAuthStateChanged
 } from "firebase/auth";
 import { db } from "./firebase";
 import {
@@ -115,6 +116,10 @@ function App() {
             const didWin =
                 yourFinalScore > opponentFinalScore;
 
+            console.log("Your score:", yourFinalScore);
+            console.log("Opponent score:", opponentFinalScore);
+            console.log("Did win:", didWin);
+
             await updatePlayerStats(didWin);
 
             const updatedRef =
@@ -199,6 +204,10 @@ function App() {
     }
 
     async function updatePlayerStats(didWin) {
+
+        console.log("Updating stats...");
+        console.log("User:", user);
+        console.log("Did win:", didWin);
 
         if (!user) return;
 
