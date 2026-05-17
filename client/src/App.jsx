@@ -400,7 +400,24 @@ function App() {
                         </div>
 
                         <button
-                            onClick={() => window.location.reload()}
+                            onClick={() => {
+
+                                setStatus("Idle");
+
+                                setRoomId("");
+
+                                setQuestion("");
+
+                                setAnswer("");
+
+                                setScores({});
+
+                                setTimeLeft(60);
+
+                                setFeedback("");
+
+                                setStreak(0);
+                            }}
                             style={{
                                 padding: "15px 40px",
                                 fontSize: "20px",
