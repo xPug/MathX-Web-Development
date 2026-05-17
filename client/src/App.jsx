@@ -183,8 +183,6 @@ function App() {
             const currentUser =
                 result.user;
 
-            setUser(currentUser);
-
             const userRef =
                 doc(db, "players", currentUser.uid);
 
