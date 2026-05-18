@@ -16,7 +16,12 @@ import {
     getDoc,
     setDoc,
     updateDoc,
-    increment
+    increment,
+    collection,
+    getDocs,
+    query,
+    orderBy,
+    limit
 } from "firebase/firestore";
 
 function App() {
