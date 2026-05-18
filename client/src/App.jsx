@@ -265,6 +265,7 @@ function App() {
             await getDoc(playerRef);
 
         setPlayerData(updatedSnap.data());
+        loadLeaderboard();
     }
 
     async function loadLeaderboard() {
