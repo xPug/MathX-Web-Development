@@ -37,6 +37,7 @@ function App() {
     const [flashColor, setFlashColor] = useState("");
     const [user, setUser] = useState(null);
     const [playerData, setPlayerData] = useState(null);
+    const [leaderboard, setLeaderboard] = useState([]);
 
     useEffect(() => {
 
