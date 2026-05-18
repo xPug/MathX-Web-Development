@@ -266,6 +266,30 @@ function App() {
         setPlayerData(updatedSnap.data());
     }
 
+    async function loadLeaderboard() {
+
+        const playersRef =
+            collection(db, "players");
+
+        const q =
+            query(
+                playersRef,
+                orderBy("rating", "desc"),
+                limit(10)
+            );
+
+        const querySnapshot =
+            await getDocs(q);
+
+        const topPlayers =
+            querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+        setLeaderboard(topPlayers);
+    }
+
     function findMatch() {
 
         socket.emit("findMatch");
