@@ -56,6 +56,7 @@ function App() {
 
                     if (userSnap.exists()) {
                         setPlayerData(userSnap.data());
+                        loadLeaderboard();
                     }
                 }
             });
