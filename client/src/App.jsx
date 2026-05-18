@@ -423,6 +423,57 @@ function App() {
                                         Logout
                                     </button>
 
+                                    <div style={{
+                                        marginTop: "25px",
+                                        width: "300px",
+                                        backgroundColor: "#111827",
+                                        borderRadius: "14px",
+                                        padding: "15px"
+                                    }}>
+
+                                        <h2 style={{
+                                            marginBottom: "15px",
+                                            color: "#facc15"
+                                        }}>
+                                            🏆 Top Players
+                                        </h2>
+
+                                        {
+                                            leaderboard.map((player, index) => (
+
+                                                <div
+                                                    key={player.id}
+
+                                                    style={{
+                                                        display: "flex",
+                                                        justifyContent: "space-between",
+                                                        marginBottom: "10px",
+                                                        padding: "8px",
+                                                        backgroundColor:
+                                                            player.id === user.uid
+                                                            ? "#312e81"
+                                                            : "#1f2937",
+
+                                                        borderRadius: "8px"
+                                                    }}
+                                                >   
+
+                                                    <span>
+                                                        #{index + 1} {player.name}
+                                                    </span>
+
+                                                    <span style={{
+                                                        color: "#facc15"
+                                                    }}>
+                                                        {player.rating}
+                                                    </span>
+
+                                                </div>
+                                            ))
+                                        }
+
+                                    </div>
+
                                 </div>
                             )
                         }
