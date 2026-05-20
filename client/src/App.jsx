@@ -56,8 +56,8 @@ function App() {
 
                     if (userSnap.exists()) {
                         setPlayerData(userSnap.data());
-                        loadLeaderboard();
                     }
+                    loadLeaderboard();
                 }
             });
 
@@ -216,6 +216,8 @@ function App() {
                 highestStreak: 0
             });
 
+            loadLeaderboard();
+
             } else {
                 setPlayerData(userSnap.data());
             }
@@ -270,26 +272,35 @@ function App() {
 
     async function loadLeaderboard() {
 
-        const playersRef =
-            collection(db, "players");
+        try {
 
-        const q =
-            query(
-                playersRef,
-                orderBy("rating", "desc"),
-                limit(10)
-            );
+            const playersRef =
+                collection(db, "players");
 
-        const querySnapshot =
-            await getDocs(q);
+            const q =
+                query(
+                    playersRef,
+                    orderBy("rating", "desc"),
+                    limit(10)
+                );
 
-        const topPlayers =
-            querySnapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }));
+            const querySnapshot =
+                await getDocs(q);
 
-        setLeaderboard(topPlayers);
+            const topPlayers =
+                querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+            console.log(topPlayers);
+
+            setLeaderboard(topPlayers);
+
+        } catch (error) {
+
+            console.error(error);
+        }
     }
 
     function findMatch() {
