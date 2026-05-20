@@ -235,6 +235,32 @@ function App() {
         setUser(null);
     }
 
+    function calculateElo(
+        playerRating,
+        opponentRating,
+        didWin
+    ) {
+
+        const K = 32;
+
+        const expectedScore =
+            1 / (
+                1 +
+                Math.pow(
+                    10,
+                    (opponentRating - playerRating) / 400
+                )
+            );
+
+        const actualScore =
+            didWin ? 1 : 0;
+
+        return Math.round(
+            playerRating +
+            K * (actualScore - expectedScore)
+        );
+    }
+
     async function updatePlayerStats(didWin) {
 
         console.log("Updating stats...");
