@@ -263,11 +263,23 @@ function App() {
 
     async function updatePlayerStats(didWin) {
 
-        console.log("Updating stats...");
-        console.log("User:", user);
-        console.log("Did win:", didWin);
+        if (!user || !playerData) return;
 
-        if (!user) return;
+        // TEMPORARY opponent rating
+        const opponentRating = 1000;
+
+        const currentRating =
+            playerData.rating;
+
+        const newRating =
+            calculateElo(
+                currentRating,
+                opponentRating,
+                didWin
+            );
+
+        const ratingChange =
+            newRating - currentRating;
 
         const playerRef =
             doc(db, "players", user.uid);
@@ -284,17 +296,16 @@ function App() {
                 ? increment(0)
                 : increment(1),
 
-            rating: didWin
-                ? increment(25)
-                : increment(-15)
+            rating: increment(ratingChange)
         });
 
-        const updatedSnap =
-            await getDoc(playerRef);
+    const updatedSnap =
+        await getDoc(playerRef);
 
-        setPlayerData(updatedSnap.data());
-        loadLeaderboard();
-    }
+    setPlayerData(updatedSnap.data());
+
+    loadLeaderboard();
+}
 
     async function loadLeaderboard() {
 
