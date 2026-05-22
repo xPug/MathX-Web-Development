@@ -466,7 +466,8 @@ function App() {
                                             <h3 style={{
                                                 color: "#facc15"
                                             }}>
-                                                ⭐ Rating: {playerData.rating}
+                                                🏆 {getRank(playerData.rating)}
+                                                • {playerData.rating}
                                             </h3>
                                         )
                                     }
