@@ -362,6 +362,27 @@ function App() {
     const opponentScore =
         opponentEntry ? opponentEntry[1] : 0;
 
+    function getRank(rating) {
+
+        if (rating < 1000) {
+            return "Bronze";
+        }
+
+        if (rating < 1200) {
+            return "Silver";
+        }
+
+        if (rating < 1400) {
+            return "Gold";
+        }
+
+        if (rating < 1600) {
+            return "Platinum";
+        }
+
+        return "Diamond";
+}
+
     return (
         <div style={{
             background: flashColor || "linear-gradient(to bottom, #020617, #0f172a)",
