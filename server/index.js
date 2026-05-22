@@ -185,11 +185,13 @@ io.on("connection", (socket) => {
 
         console.log("Player disconnected:", socket.id);
 
-        if (waitingPlayer === socket) {
-            waitingPlayer = null;
-        }
+        waitingPlayers =
+            waitingPlayers.filter(
+                (player) =>
+                    player.socket.id !== socket.id
+            );
+        });
     });
-});
 
 server.listen(3001, () => {
     console.log("Server running on port 3001");
