@@ -16,7 +16,7 @@ const io = new Server(server, {
     }
 });
 
-let waitingPlayer = null;
+let waitingPlayer = [];
 
 const games = {};
 
