@@ -52,62 +52,108 @@ io.on("connection", (socket) => {
 
     console.log("Player connected:", socket.id);
 
-    socket.on("findMatch", () => {
+    socket.on("findMatch", (playerRating = 1000) => {
 
-        if (waitingPlayer === null) {
+        const playerData = {
+            socket,
+            rating: playerRating,
+            joinedAt: Date.now()
+        };
 
-            waitingPlayer = socket;
+        const allowedDifference = 200;
+
+        let opponentIndex = -1;
+
+        for (let i = 0; i < waitingPlayers.length; i++) {
+
+            const waiting = waitingPlayers[i];
+
+            const ratingDifference =
+                Math.abs(
+                    waiting.rating -
+                    playerData.rating
+                );
+
+            if (ratingDifference <= allowedDifference) {
+
+                opponentIndex = i;
+
+                break;
+            }
+        }
+
+        if (opponentIndex === -1) {
+
+            waitingPlayers.push(playerData);
 
             socket.emit("waiting");
 
-        } else {
+            return;
+        }
 
-            const roomId = `room-${socket.id}-${waitingPlayer.id}`;
+        const opponent =
+            waitingPlayers[opponentIndex];
 
-            socket.join(roomId);
-            waitingPlayer.join(roomId);
+        waitingPlayers.splice(opponentIndex, 1);
 
-            const firstQuestion = generateQuestion(60);
+        const roomId =
+            `room-${socket.id}-${opponent.socket.id}`;
 
-            games[roomId] = {
-                scores: {
-                    [socket.id]: 0,
-                    [waitingPlayer.id]: 0
-                },
-                currentAnswer: firstQuestion.answer,
-                timeLeft: 60
-            };
+        socket.join(roomId);
 
-            io.to(roomId).emit("gameStart", {
-                roomId,
-                question: firstQuestion.question,
-                scores: games[roomId].scores,
-                timeLeft: 60
+        opponent.socket.join(roomId);
+
+        const firstQuestion =
+            generateQuestion(60);
+
+        games[roomId] = {
+
+            scores: {
+                [socket.id]: 0,
+                [opponent.socket.id]: 0
+            },
+
+            currentAnswer:
+                firstQuestion.answer,
+
+            timeLeft: 60
+        };
+
+        io.to(roomId).emit("gameStart", {
+
+            roomId,
+
+            question:
+                firstQuestion.question,
+
+            scores:
+                games[roomId].scores,
+
+            timeLeft: 60
+        });
+
+        const timer = setInterval(() => {
+
+            games[roomId].timeLeft--;
+
+            io.to(roomId).emit("timerUpdate", {
+                timeLeft:
+                    games[roomId].timeLeft
             });
 
-            const timer = setInterval(() => {
+            if (games[roomId].timeLeft <= 0) {
 
-                games[roomId].timeLeft--;
+                clearInterval(timer);
 
-                io.to(roomId).emit("timerUpdate", {
-                    timeLeft: games[roomId].timeLeft
+                io.to(roomId).emit("gameOver", {
+                    scores:
+                        games[roomId].scores
                 });
 
-                if (games[roomId].timeLeft <= 0) {
+                delete games[roomId];
+            }
 
-                    clearInterval(timer);
-
-                    io.to(roomId).emit("gameOver", {
-                        scores: games[roomId].scores
-                    });
-
-                    delete games[roomId];
-                }
-
-            }, 1000);
-
-            waitingPlayer = null;
-        }
+        }, 1000);
     });
 
     socket.on("submitAnswer", ({ roomId, answer }) => {
