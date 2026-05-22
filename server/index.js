@@ -60,7 +60,11 @@ io.on("connection", (socket) => {
             joinedAt: Date.now()
         };
 
-        const allowedDifference = 200;
+        const waitTime =
+            (Date.now() - playerData.joinedAt) / 1000;
+
+        const allowedDifference =
+            200 + (waitTime * 50);
 
         let opponentIndex = -1;
 
