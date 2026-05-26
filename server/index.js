@@ -52,11 +52,12 @@ io.on("connection", (socket) => {
 
     console.log("Player connected:", socket.id);
 
-    socket.on("findMatch", (playerRating = 1000) => {
+    socket.on("findMatch", (playerInfo) => {
 
         const playerData = {
             socket,
-            rating: playerRating,
+            rating: playerInfo.rating,
+            name: playerInfo.name,
             joinedAt: Date.now()
         };
 
