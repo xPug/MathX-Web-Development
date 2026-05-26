@@ -334,10 +334,14 @@ function App() {
 
     function findMatch() {
 
-        socket.emit(
-            "findMatch",
-            playerData?.rating || 1000
-        );
+        socket.emit("findMatch", {
+
+            rating:
+                playerData?.rating || 1000,
+
+            name:
+                user?.displayName || "Player"
+        });
 
         setStatus("Searching...");
     }
