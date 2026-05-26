@@ -369,6 +369,14 @@ function App() {
     const opponentScore =
         opponentEntry ? opponentEntry[1] : 0;
 
+    const yourPlayerData =
+        players[socket.id];
+
+    const opponentPlayerData =
+        Object.entries(players).find(
+            ([id]) => id !== socket.id
+        )?.[1];
+
     function getRank(rating) {
 
         if (rating < 1000) {
