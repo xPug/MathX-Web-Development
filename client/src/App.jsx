@@ -748,7 +748,12 @@ function App() {
                             <div style={{
                                 textAlign: "center"
                             }}>
-                                <h2>Opponent</h2>
+                                <h2>
+                                    {
+                                        opponentPlayerData?.name
+                                        || "Opponent"
+                                    }
+                                </h2>
 
                                 <h1 style={{
                                     fontSize: "50px",
