@@ -38,6 +38,7 @@ function App() {
     const [user, setUser] = useState(null);
     const [playerData, setPlayerData] = useState(null);
     const [leaderboard, setLeaderboard] = useState([]);
+    const [players, setPlayers] = useState({});
 
     useEffect(() => {
 
