@@ -87,6 +87,8 @@ function App() {
             setScores(data.scores);
 
             setTimeLeft(data.timeLeft);
+
+            setPlayers(data.players);
         });
 
         socket.on("timerUpdate", (data) => {
