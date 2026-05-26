@@ -134,7 +134,20 @@ io.on("connection", (socket) => {
             scores:
                 games[roomId].scores,
 
-            timeLeft: 60
+            timeLeft: 60,
+
+            players: {
+
+                [socket.id]: {
+                    name: playerData.name,
+                    rating: playerData.rating
+                },
+
+                [opponent.socket.id]: {
+                    name: opponent.name,
+                    rating: opponent.rating
+                }
+            },
         });
 
         const timer = setInterval(() => {
