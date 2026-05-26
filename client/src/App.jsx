@@ -760,6 +760,14 @@ function App() {
                                     color: "#38bdf8"
                                 }}>
                                     {opponentScore}
+
+                                    <h3 style={{
+                                        color: "#facc15"
+                                    }}>
+                                        ⭐ {
+                                            opponentPlayerData?.rating
+                                        }
+                                    </h3>
                                 </h1>
                             </div>
                         </div>
