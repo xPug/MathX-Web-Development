@@ -90,6 +90,12 @@ function App() {
             setTimeLeft(data.timeLeft);
 
             setPlayers(data.players);
+
+            setShowMatchIntro(true);
+
+            setTimeout(() => {
+                setShowMatchIntro(false);
+            }, 2000);
         });
 
         socket.on("timerUpdate", (data) => {
