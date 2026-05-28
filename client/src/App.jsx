@@ -643,6 +643,57 @@ function App() {
                     </>
                 )
                 :
+                showMatchIntro
+                ?
+                (
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "70vh",
+                        gap: "20px"
+                    }}>
+
+                        <h1 style={{
+                            fontSize: "50px",
+                            color: "#22c55e"
+                        }}>
+                            {user?.displayName}
+                        </h1>
+
+                        <h2 style={{
+                            color: "#facc15"
+                        }}>
+                            {yourPlayerData?.rating}
+                        </h2>
+
+                        <h1 style={{
+                            fontSize: "80px"
+                        }}>
+                            VS
+                        </h1>
+
+                        <h1 style={{
+                            fontSize: "50px",
+                            color: "#38bdf8"
+                        }}>
+                            {
+                                opponentPlayerData?.name
+                            }
+                        </h1>
+
+                        <h2 style={{
+                            color: "#facc15"
+                        }}>
+                            {
+                                opponentPlayerData?.rating
+                            }
+                        </h2>
+
+                    </div>
+                )
+                :
                 (
                     <>
                         <div style={{
