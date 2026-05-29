@@ -42,9 +42,46 @@ function generateQuestion(timeLeft) {
     const num2 =
         Math.floor(Math.random() * maxNumber);
 
+    const operation =
+    Math.floor(Math.random() * 4);
+
+    if (operation === 0) {
+
+        return {
+            question: `${num1} + ${num2}`,
+            answer: num1 + num2
+        };
+    }
+
+    if (operation === 1) {
+
+        return {
+            question: `${num1} - ${num2}`,
+            answer: num1 - num2
+        };
+    }
+
+    if (operation === 2) {
+
+        return {
+            question: `${num1} × ${num2}`,
+            answer: num1 * num2
+        };
+    }
+
+    // Division
+    const answer =
+        Math.floor(Math.random() * 12) + 1;
+
+    const divisor =
+        Math.floor(Math.random() * 12) + 1;
+
+    const dividend =
+        answer * divisor;
+
     return {
-        question: `${num1} + ${num2}`,
-        answer: num1 + num2
+        question: `${dividend} ÷ ${divisor}`,
+        answer: answer
     };
 }
 
