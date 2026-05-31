@@ -40,6 +40,7 @@ function App() {
     const [leaderboard, setLeaderboard] = useState([]);
     const [players, setPlayers] = useState({});
     const [showMatchIntro, setShowMatchIntro] = useState(false);
+    const [ratingChange, setRatingChange] = useState(0);
 
     useEffect(() => {
 
