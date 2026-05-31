@@ -283,6 +283,7 @@ function App() {
 
         const ratingChange =
             newRating - currentRating;
+            setRatingChange(ratingChange);
 
         const playerRef =
             doc(db, "players", user.uid);
