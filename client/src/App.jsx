@@ -283,7 +283,8 @@ function App() {
 
         const ratingChange =
             newRating - currentRating;
-            setRatingChange(ratingChange);
+        
+        setRatingChange(ratingChange);
 
         const playerRef =
             doc(db, "players", user.uid);
@@ -610,6 +611,17 @@ function App() {
                                 ))
                             }
                         </div>
+                        <h2
+                            style={{
+                                color:
+                                    ratingChange >= 0
+                                    ? "#22c55e"
+                                    : "#ef4444"
+                            }}
+                        >
+                            {ratingChange >= 0 ? "+" : ""}
+                            {ratingChange} Rating
+                        </h2>
 
                         <button
                             onClick={() => {
