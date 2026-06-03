@@ -497,6 +497,25 @@ function App() {
                                         )
                                     }
 
+                                    {
+                                        playerData &&
+                                        (
+                                            <h3>
+                                                Win Rate: {
+                                                    playerData.gamesPlayed > 0
+                                                    ?
+                                                    Math.round(
+                                                        playerData.wins /
+                                                        playerData.gamesPlayed *
+                                                        100
+                                                    )
+                                                    :
+                                                    0
+                                                }%
+                                            </h3>
+                                        )
+                                    }
+
                                     <button
                                         onClick={logout}
 
