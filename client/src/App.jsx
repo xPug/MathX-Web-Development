@@ -510,7 +510,10 @@ function App() {
                                         playerData &&
                                         (
                                             <h3 style={{
-                                                color: "#facc15"
+                                                color:
+                                                    getRankColor(
+                                                        playerData.rating
+                                                    )
                                             }}>
                                                 🏆 {getRank(playerData.rating)}
                                                 • {playerData.rating}
