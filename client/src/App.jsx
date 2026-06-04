@@ -406,7 +406,28 @@ function App() {
         }
 
         return "Diamond";
-}
+    }
+
+    function getRankColor(rating) {
+
+        if (rating < 1000) {
+            return "#cd7f32";
+        }
+
+        if (rating < 1200) {
+            return "#c0c0c0";
+        }
+
+        if (rating < 1400) {
+            return "#facc15";
+        }
+
+        if (rating < 1600) {
+            return "#38bdf8";
+        }
+
+        return "#a855f7";
+    }
 
     return (
         <div style={{
