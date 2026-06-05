@@ -2,7 +2,7 @@
   Web-Development (Beta)
 </h1>
 
-                                          Ongoing stealth website and game development project. 🌐
+                                        Ongoing stealth website and game development project. 🌐
 
 -------------------------------------
 
