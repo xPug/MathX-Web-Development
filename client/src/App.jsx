@@ -21,7 +21,9 @@ import {
     getDocs,
     query,
     orderBy,
-    limit
+    limit,
+    addDoc,
+    serverTimestamp
 } from "firebase/firestore";
 
 function App() {
