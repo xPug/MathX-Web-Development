@@ -65,7 +65,7 @@ __MathX aims to make math learning fun, engaging, and rewarding for learners at 
 # In-Progress
 
     - Brainstorm (10%)
-    - Math Implementation (10%)
+    - Math Implementation (20%)
     - Demo Questions (N/A%)
     - Website (N/A%)
 
